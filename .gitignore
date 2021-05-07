@@ -12,3 +12,9 @@ web-build/
 
 # macOS
 .DS_Store
+
+# testing snapshots
+__tests__/__snapshots__
+
+# jest
+.jest/
