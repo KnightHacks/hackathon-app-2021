@@ -12,7 +12,9 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "cacheDirectory": ".jest"
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    }
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
