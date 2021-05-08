@@ -27,6 +27,7 @@
             }
         }],
         "react/self-closing-comp": ["error"]
+        // "react/jsx-filename-extension": [2, { "allow": "as-needed" }]
     },
     "settings": {
       "react": {
