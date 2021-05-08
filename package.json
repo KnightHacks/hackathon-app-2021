@@ -7,7 +7,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test-dev": "node ./node_modules/jest/bin/jest.js --watchAll",
-    "test": "node ./node_modules/jest/bin/jest.js __tests__"
+    "test": "node ./node_modules/jest/bin/jest.js __tests__",
+    "lint": "eslint ."
   },
   "jest": {
     "preset": "jest-expo",
@@ -31,7 +32,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/eslint-parser": "^7.13.14",
     "@babel/preset-env": "^7.12.17",
+    "eslint": "^7.25.0",
+    "eslint-plugin-react": "^7.23.2",
     "jest-expo": "^41.0.0"
   },
   "private": true
