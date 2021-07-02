@@ -3,16 +3,14 @@ import { Text, View } from 'react-native';
 import BaseStyles from '../styles/baseStyles';
 
 /**
- * The FAQ page for knight hacks.
- * 
- * @returns {JSX.Element}
+ * The Sponsors page for knight hacks.
  */
-function FAQ() {
+function Sponsors(): JSX.Element {
     return (
         <View style={BaseStyles.expandedContainer}>
-            <Text>FAQ Screen</Text>
+            <Text>Sponsors Screen</Text>
         </View>
     );
 }
 
-export default FAQ;
+export default Sponsors;

@@ -3,16 +3,14 @@ import { Text, View } from 'react-native';
 import BaseStyles from '../styles/baseStyles';
 
 /**
- * The Schedule page for knight hacks.
- * 
- * @returns {JSX.Element}
+ * The Home page for knight hacks.
  */
-function Schedule() {
+function Home(): JSX.Element {
     return (
         <View style={BaseStyles.expandedContainer}>
-            <Text>Schedule Screen</Text>
+            <Text>Home Screen</Text>
         </View>
     );
 }
 
-export default Schedule;
+export default Home;

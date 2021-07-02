@@ -11,10 +11,8 @@ const Stack = createStackNavigator();
 
 /**
  * The root navigation stack of the application.
- * 
- * @returns {JSX.Element} The root stack of the application
  */
-function RootStack() {
+function RootStack(): JSX.Element {
     return (
         <Stack.Navigator
          initialRouteName="Home"
