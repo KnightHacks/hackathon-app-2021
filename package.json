@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test-dev": "node ./node_modules/jest/bin/jest.js --watchAll",
-    "test": "jest",
+    "test": "jest -u",
     "lint": "eslint ."
   },
   "jest": {
