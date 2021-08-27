@@ -26,7 +26,7 @@ jobs:
             ${{ runner.os }}-
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
       - run: npm ci
       - run: npm run build
   Test:
@@ -45,13 +45,16 @@ jobs:
             ${{ runner.os }}-
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
       - run: npm ci
       - run: npm test
   Lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - uses: actions/cache@v2
         env:
           cache-name: cache-node-modules
