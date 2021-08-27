@@ -9,7 +9,15 @@
     "eject": "expo eject",
     "test-dev": "node ./node_modules/jest/bin/jest.js --watchAll",
     "test": "jest -u",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "jest": {
     "preset": "jest-expo",
@@ -35,6 +43,9 @@
     "react-test-renderer": "^16.14.0"
   },
   "devDependencies": {
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
     "@babel/core": "~7.14.6",
     "@babel/eslint-parser": "^7.14.7",
     "@babel/preset-env": "^7.12.17",
