@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "./src/App.tsx",
     "name": "hackathon-app-2021",
     "slug": "hackathon-app-2021",
     "version": "1.0.0",
