@@ -13,36 +13,16 @@ const Stack = createStackNavigator();
  * The root navigation stack of the application.
  */
 function RootStack(): JSX.Element {
-    return (
-        <Stack.Navigator
-         initialRouteName="Home"
-        >
-            <Stack.Screen
-              name="Home"
-              component={Home}
-            />
-            <Stack.Screen
-              name="About"
-              component={About}
-            />
-            <Stack.Screen
-              name="FAQ"
-              component={FAQ}
-            />
-            <Stack.Screen
-              name="Register"
-              component={Register}
-            />
-            <Stack.Screen
-              name="Schedule"
-              component={Schedule}
-            />
-            <Stack.Screen
-              name="Sponsors"
-              component={Sponsors}
-            />
-        </Stack.Navigator>
-    );
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="About" component={About} />
+      <Stack.Screen name="FAQ" component={FAQ} />
+      <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="Schedule" component={Schedule} />
+      <Stack.Screen name="Sponsors" component={Sponsors} />
+    </Stack.Navigator>
+  );
 }
 
 export default RootStack;

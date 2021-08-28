@@ -14,13 +14,14 @@
     "test-dev": "node ./node_modules/jest/bin/jest.js --watchAll",
     "test": "jest -u",
     "lint": "eslint .",
+    "format": "prettier --write",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
+      "npm run format",
+      "npm run lint"
     ]
   },
   "jest": {
@@ -54,7 +55,11 @@
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "@types/react-test-renderer": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
     "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-react": "^7.24.0",
     "husky": "^7.0.2",
     "jest-expo": "^42.0.0",
