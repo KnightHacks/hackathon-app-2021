@@ -3,16 +3,11 @@
 import React from 'react';
 import Home from '../screens/Home';
 import About from '../screens/About';
-import FAQ from '../screens/FAQ';
-import Register from '../screens/Register';
-import Schedule from '../screens/Schedule';
-import Sponsors from '../screens/Sponsors';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
+import Sponsors from '../screens/Sponsors';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +17,25 @@ const Tab = createBottomTabNavigator();
 function RootStack(): JSX.Element {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarIconStyle: {
+            height: 50,
+          },
+          tabBarStyle: {
+            backgroundColor: 'white',
+            alignContent: 'center',
+            position: 'absolute',
+            bottom: 25,
+            left: 45,
+            right: 45,
+            borderRadius: 45,
+            height: 60,
+            paddingBottom: 0,
+          },
+        }}
+      >
         <Tab.Screen
           name="Home"
           component={Home}
@@ -39,41 +52,6 @@ function RootStack(): JSX.Element {
             tabBarIcon: ({ color }) => {
               return <AntDesign name="book" size={24} color={color} />;
             },
-          }}
-        />
-        <Tab.Screen
-          name="FAQ"
-          component={FAQ}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="comment-question-outline"
-                size={24}
-                color={color}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Register"
-          component={Register}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="account-check"
-                size={24}
-                color={color}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Schedule"
-          component={Schedule}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialIcons name="schedule" size={24} color={color} />
-            ),
           }}
         />
         <Tab.Screen
