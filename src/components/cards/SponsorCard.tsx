@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
-import { Sponsor } from '../../types';
+import { Sponsor } from '@knighthacks/hackathon';
 
 export interface SponsorCardProps {
   sponsor: Sponsor;
@@ -80,18 +80,18 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
           <Image style={styles.headerImage} source={{ uri: sponsor.logo }} />
         </View>
         <View style={styles.headerTitle}>
-          <Text style={styles.heading}>{sponsor.sponsor_name}</Text>
+          <Text style={styles.heading}>{sponsor.sponsorName}</Text>
           <Text>{sponsor.email}</Text>
         </View>
       </View>
       <View
         style={[
           styles.tierBadge,
-          { backgroundColor: tierColor(sponsor.subscription_tier) },
+          { backgroundColor: tierColor(sponsor.subscriptionTier) },
         ]}
       >
         <Text style={{ fontWeight: 'bold', color: 'white' }}>
-          {sponsor.subscription_tier.toUpperCase()}
+          {sponsor.subscriptionTier.toUpperCase()}
         </Text>
       </View>
     </View>
