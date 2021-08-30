@@ -4,6 +4,7 @@ import CardStyles from '../../styles/cardStyles';
 import { Event } from '@knighthacks/hackathon';
 import dayjs from 'dayjs';
 import { toHourMinute } from '../../util/date';
+import CalendarButton from '../CalendarButton';
 
 export interface EventCardProps {
   event: Event;
@@ -15,16 +16,24 @@ export interface EventCardProps {
 export default function EventCard({ event }: EventCardProps) {
   return (
     <View style={CardStyles.card}>
-      <View style={CardStyles.header}>
-        <View style={CardStyles.headerImageContainer}>
-          <Image style={CardStyles.headerImage} source={{ uri: event.image }} />
+      <View style={[CardStyles.header, { justifyContent: 'space-between' }]}>
+        <View style={{ display: 'flex', flexDirection: 'row' }}>
+          <View style={CardStyles.headerImageContainer}>
+            <Image
+              style={CardStyles.headerImage}
+              source={{ uri: event.image }}
+            />
+          </View>
+          <View style={CardStyles.headerTitle}>
+            <Text style={CardStyles.heading}>{event.name}</Text>
+            <Text style={{ color: 'gray' }}>
+              {`${dayjs(event.dateTime).format('MMMM Do')}, ${dayjs(
+                event.dateTime
+              ).fromNow()}`}
+            </Text>
+          </View>
         </View>
-        <View style={CardStyles.headerTitle}>
-          <Text style={CardStyles.heading}>{event.name}</Text>
-          <Text style={{ color: 'gray' }}>
-            {dayjs(event.dateTime).fromNow()}
-          </Text>
-        </View>
+        <CalendarButton event={event} />
       </View>
       <View
         style={{
