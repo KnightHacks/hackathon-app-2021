@@ -1,5 +1,9 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "./src/App.tsx",
+  "engines": {
+    "node": ">=16.6.0",
+    "npm": ">=7.0.0"
+  },
   "scripts": {
     "start": "expo start",
     "build": "tsc",
@@ -9,7 +13,16 @@
     "eject": "expo eject",
     "test-dev": "node ./node_modules/jest/bin/jest.js --watchAll",
     "test": "jest -u",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --write",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run format",
+      "npm run lint"
+    ]
   },
   "jest": {
     "preset": "jest-expo",
@@ -18,19 +31,22 @@
     ]
   },
   "dependencies": {
+    "@expo/vector-icons": "^12.0.0",
+    "@knighthacks/hackathon": "^0.1.0-dev-f3b254f",
     "@react-native-community/masked-view": "0.1.11",
-    "@react-navigation/native": "^5.9.4",
-    "@react-navigation/stack": "^5.14.5",
-    "expo": "^42.0.0",
+    "@react-navigation/bottom-tabs": "^6.0.5",
+    "@react-navigation/native": "^6.0.1",
+    "@react-navigation/stack": "^6.0.7",
+    "expo": "^42.0.3",
     "expo-status-bar": "~1.0.4",
     "jest": "^26.6.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-gesture-handler": "~1.10.2",
+    "react-native-gesture-handler": "~1.10.3",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
-    "react-native-screens": "~3.4.0",
+    "react-native-screens": "~3.6.0",
     "react-native-web": "~0.13.12",
     "react-test-renderer": "^16.14.0"
   },
@@ -42,9 +58,16 @@
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "@types/react-test-renderer": "^17.0.1",
-    "eslint": "^7.29.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-react": "^7.24.0",
-    "jest-expo": "^42.0.0",
+    "husky": "^7.0.2",
+    "jest-expo": "^42.1.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
     "typescript": "~4.0.0"
   },
   "private": true
