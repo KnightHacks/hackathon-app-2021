@@ -1,29 +1,29 @@
+import { Sponsor } from '@knighthacks/hackathon';
 import React from 'react';
 import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import SponsorCard from '../components/cards/SponsorCard';
-import { Sponsor } from '../types';
 
 const testJSON: Sponsor[] = [
   {
-    sponsor_name: 'Apple',
+    sponsorName: 'Apple',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1010px-Apple_logo_black.svg.png',
     email: 'apple@apple.com',
-    subscription_tier: 'diamond',
+    subscriptionTier: 'diamond',
     username: 'sponsor_name',
   },
   {
-    sponsor_name: 'Microsoft',
+    sponsorName: 'Microsoft',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png',
     email: 'microsoft@outlook.com',
-    subscription_tier: 'silver',
+    subscriptionTier: 'silver',
     username: 'sponsor_name2',
   },
   {
-    sponsor_name: 'Google',
+    sponsorName: 'Google',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/600px-Google_%22G%22_Logo.svg.png',
     email: 'google@gmail.com',
-    subscription_tier: 'gold',
+    subscriptionTier: 'gold',
     username: 'sponsor_name3',
   },
 ];
