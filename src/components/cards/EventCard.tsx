@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { Event } from '../../types';
 import CardStyles from '../../styles/cardStyles';
+import { Event } from '@knighthacks/hackathon';
+import dayjs from 'dayjs';
+import { toHourMinute } from '../../util/date';
 
 export interface EventCardProps {
   event: Event;
@@ -19,10 +21,27 @@ export default function EventCard({ event }: EventCardProps) {
         </View>
         <View style={CardStyles.headerTitle}>
           <Text style={CardStyles.heading}>{event.name}</Text>
-          <Text style={{ color: 'gray' }}>{event.date_time}</Text>
+          <Text style={{ color: 'gray' }}>
+            {dayjs(event.dateTime).fromNow()}
+          </Text>
         </View>
       </View>
-      <Text style={{ marginTop: 10, fontWeight: 'bold' }}>{event.loc}</Text>
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginTop: 10,
+        }}
+      >
+        <Text style={{ fontWeight: '700' }}>{event.loc}</Text>
+        <Text style={{ fontWeight: '500', color: 'gray' }}>
+          {`${toHourMinute(event.dateTime)} - ${toHourMinute(
+            event.endDateTime
+          )}`}
+        </Text>
+      </View>
+
       <Text style={{ marginTop: 10 }}>{event.description}</Text>
       <View
         style={{
@@ -49,7 +68,7 @@ export default function EventCard({ event }: EventCardProps) {
               color: 'white',
             }}
           >
-            {event.event_type}
+            {event.eventType}
           </Text>
         </View>
       </View>

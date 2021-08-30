@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   heading: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlignVertical: 'center',
   },
