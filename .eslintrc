@@ -20,14 +20,6 @@
   "parser": "@typescript-eslint/parser",
   "rules": {
     "react/destructuring-assignment": ["error", "always"],
-    "require-jsdoc": [
-      "error",
-      {
-        "require": {
-          "FunctionDeclaration": true
-        }
-      }
-    ],
     "react/self-closing-comp": ["error"]
   },
   "settings": {
