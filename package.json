@@ -38,6 +38,7 @@
     "@react-navigation/native": "^6.0.1",
     "@react-navigation/stack": "^6.0.7",
     "@types/react-native-dotenv": "^0.2.0",
+    "dayjs": "^1.10.6",
     "expo": "^42.0.3",
     "expo-status-bar": "~1.0.4",
     "jest": "^26.6.3",
