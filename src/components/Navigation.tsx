@@ -1,13 +1,13 @@
 /* eslint-disable react/display-name */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import Home from '../screens/Home';
 import About from '../screens/About';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import Sponsors from '../screens/Sponsors';
+import Schedule from '../screens/Schedule';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,7 +38,7 @@ function RootStack(): JSX.Element {
       >
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={Schedule}
           options={{
             tabBarIcon: ({ color }) => (
               <Feather name="home" size={24} color={color} />

@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-          - run: echo "SENTRY_DSN=${{ secrets.SENTRY_DSN_KEY }}" > .env
+          - run: echo "SENTRY_DSN=${{ secrets.SENTRY_DSN_KEY }}\nSENTRY_ORG_NAME=${{ secrets.SENTRY_ORG_NAME }}\nSENTRY_PROJECT_NAME=${{ secrets.SENTRY_PROJECT_NAME }}\nSENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" > .env
       - run: npm ci
       - run: npm run build
   Test:
