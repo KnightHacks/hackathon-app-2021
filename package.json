@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
-    "@knighthacks/hackathon": "^0.1.0-dev-f3b254f",
+    "@knighthacks/hackathon": "^0.1.0-dev-fb53d14",
     "@react-native-community/masked-view": "0.1.11",
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^6.0.1",
@@ -40,7 +40,12 @@
     "@types/react-native-dotenv": "^0.2.0",
     "dayjs": "^1.10.6",
     "expo": "^42.0.3",
+    "expo-application": "~3.2.0",
+    "expo-calendar": "~9.2.2",
+    "expo-constants": "~11.0.1",
+    "expo-device": "~3.3.0",
     "expo-status-bar": "~1.0.4",
+    "expo-updates": "~0.8.2",
     "jest": "^26.6.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -52,12 +57,7 @@
     "react-native-screens": "~3.6.0",
     "react-native-web": "~0.13.12",
     "react-test-renderer": "^16.14.0",
-    "sentry-expo": "^4.0.1",
-    "expo-application": "~3.2.0",
-    "expo-constants": "~11.0.1",
-    "expo-device": "~3.3.0",
-    "expo-updates": "~0.8.2",
-    "expo-calendar": "~9.2.2"
+    "sentry-expo": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "~7.14.6",
