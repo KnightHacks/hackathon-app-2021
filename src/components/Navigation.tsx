@@ -4,10 +4,12 @@ import React from 'react';
 import About from '../screens/About';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { Image, StatusBar, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import Sponsors from '../screens/Sponsors';
 import Schedule from '../screens/Schedule';
+import koipond from '../assets/KoiFishPond.png';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +21,28 @@ function RootStack(): JSX.Element {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
+          headerTitleStyle: {
+            fontSize: 32,
+            fontWeight: '700',
+            alignSelf: 'flex-start',
+            color: 'white',
+          },
+          headerStyle: {
+            height: 100,
+          },
+          headerBackground: () => (
+            <View style={{ backgroundColor: 'black' }}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                }}
+                source={koipond}
+              />
+              <StatusBar barStyle="light-content" />
+            </View>
+          ),
+          headerTitleAlign: 'left',
           tabBarShowLabel: false,
           tabBarIconStyle: {
             height: 50,
