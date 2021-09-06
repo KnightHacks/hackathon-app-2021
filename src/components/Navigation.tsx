@@ -9,6 +9,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import Sponsors from '../screens/Sponsors';
 import Schedule from '../screens/Schedule';
+// @ts-ignore
 import koipond from '../assets/KoiFishPond.png';
 
 const Tab = createBottomTabNavigator();
