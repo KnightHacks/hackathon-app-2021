@@ -15,6 +15,7 @@ const start = dayjs(new Date(2021, 11, 10, 16, 30, 0)), end = dayjs(new Date(202
 export default function CountDown() : JSX.Element {
     const [now, setNow] = useState(dayjs());
 
+    /* Update the countdown */
     useEffect(() => {
         setTimeout(() => {
             setNow(dayjs());
@@ -24,8 +25,8 @@ export default function CountDown() : JSX.Element {
     /* Renders the "time" part of the countdown */
     function calcCountDown(time1 : dayjs.Dayjs, time2 : dayjs.Dayjs) {
         const duration = dayjs.duration(time2.diff(time1));
-        if (duration.days() > 0)
-            return `${duration.hours() + (24 * duration.days())}:${duration.format("mm:ss")}`;
+        if (duration.days() > 0 || duration.months() > 0 || duration.years() > 0)
+            return `${duration.hours() + (24 * time2.diff(time1, 'days'))}:${duration.format("mm:ss")}`;
         return duration.format("HH:mm:ss");
     }
 
