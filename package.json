@@ -14,7 +14,7 @@
     "test-dev": "node ./node_modules/jest/bin/jest.js --watchAll",
     "test": "jest -u",
     "lint": "eslint .",
-    "format": "prettier --write",
+    "format": "prettier --write src",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },
