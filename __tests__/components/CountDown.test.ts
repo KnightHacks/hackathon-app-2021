@@ -1,17 +1,5 @@
-import React from 'react';
-import CountDown, { diffHourMinSec } from '../../src/components/CountDown';
-import renderer from 'react-test-renderer';
+import { diffHourMinSec } from '../../src/components/CountDown';
 import dayjs from 'dayjs';
-import { diff } from 'react-native-reanimated';
-
-/*
-describe('<CountDown />', () => {
-    it('renders', async () => {
-        const tree = renderer.create(<CountDown />).toJSON();
-        expect(tree).toMatchSnapshot();
-      });
-})
-*/
 
 const start = dayjs(new Date(2021, 11, 10, 16, 30, 0));
 
