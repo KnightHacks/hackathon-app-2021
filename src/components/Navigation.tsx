@@ -23,13 +23,10 @@ function RootStack(): JSX.Element {
       <Tab.Navigator
         screenOptions={{
           headerTitleStyle: {
-            fontSize: 32,
+            fontSize: 25,
             fontWeight: '700',
             alignSelf: 'flex-start',
             color: 'white',
-          },
-          headerStyle: {
-            height: 100,
           },
           headerBackground: () => (
             <ImageBackground
