@@ -4,7 +4,7 @@ import React from 'react';
 import About from '../screens/About';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { Image, StatusBar, View } from 'react-native';
+import { ImageBackground, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import Sponsors from '../screens/Sponsors';
@@ -32,16 +32,23 @@ function RootStack(): JSX.Element {
             height: 100,
           },
           headerBackground: () => (
-            <View style={{ backgroundColor: 'black' }}>
-              <Image
+            <ImageBackground
+              style={{
+                width: '100%',
+                height: '100%',
+                opacity: 50,
+              }}
+              source={koipond}
+            >
+              <View
                 style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.40)',
                   width: '100%',
                   height: '100%',
+                  opacity: 50,
                 }}
-                source={koipond}
               />
-              <StatusBar barStyle="light-content" />
-            </View>
+            </ImageBackground>
           ),
           headerTitleAlign: 'left',
           tabBarShowLabel: false,
