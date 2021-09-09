@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { Platform, ScrollView, UIManager } from 'react-native';
 import { View } from 'react-native';
 import EventCard from '../components/cards/EventCard';
 import { Event } from '@knighthacks/hackathon';
@@ -38,6 +38,12 @@ const testJSON: Event[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean malesuada rutrum nisi, vel tincidunt risus varius nec. Ut elit sapien, consequat sit amet efficitur eget, faucibus eget metus. Sed tempor consequat arcu. Sed fringilla eros quis magna bibendum, eget congue ipsum interdum.',
   },
 ];
+
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
 
 /**
  * The Schedule page for knight hacks.

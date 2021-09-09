@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginTop: 20,
     borderRadius: 25,
+    overflow: 'hidden',
   },
   heading: {
     fontSize: 18,
