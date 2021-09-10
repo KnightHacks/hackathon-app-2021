@@ -61,12 +61,34 @@ export default function EventCard({ event }: EventCardProps) {
           marginTop: 10,
         }}
       >
-        <Text style={{ fontWeight: '700' }}>{event.loc}</Text>
-        <Text style={{ fontWeight: '500', color: 'gray' }}>
-          {`${toHourMinute(event.dateTime)} - ${toHourMinute(
-            event.endDateTime
-          )}`}
-        </Text>
+        <View
+          style={{
+            backgroundColor: '#f2f2f2',
+            borderRadius: 5,
+            padding: 5,
+          }}
+        >
+          <Text style={{ fontWeight: '500' }}>{event.loc}</Text>
+        </View>
+
+        <View
+          style={{
+            backgroundColor: '#f2f2f2',
+            borderRadius: 5,
+            padding: 5,
+          }}
+        >
+          <Text
+            style={{
+              fontWeight: '500',
+              color: 'black',
+            }}
+          >
+            {`${toHourMinute(event.dateTime)} - ${toHourMinute(
+              event.endDateTime
+            )}`}
+          </Text>
+        </View>
       </View>
       {expanded && (
         <View>
