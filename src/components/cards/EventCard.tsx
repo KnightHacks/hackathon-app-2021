@@ -61,6 +61,7 @@ export default function EventCard({ event }: EventCardProps) {
           marginTop: 10,
         }}
       >
+<<<<<<< Updated upstream
         <View
           style={{
             backgroundColor: '#f2f2f2',
@@ -123,6 +124,48 @@ export default function EventCard({ event }: EventCardProps) {
             </View>
           </View>
         </View>
+=======
+        <Text style={{ fontWeight: '700' }}>{event.loc}</Text>
+        <Text style={{ fontWeight: '500', color: 'gray' }}>
+          {`${toHourMinute(event.dateTime)} - ${toHourMinute(
+            event.endDateTime
+          )}`}
+        </Text>
+      </View>
+      {expanded && (
+        <View>
+          <Text style={{ marginTop: 10 }}>{event.description}</Text>
+          <View
+            style={{
+              marginTop: 10,
+              alignItems: 'flex-start',
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: '#8e43f6',
+                borderRadius: 18,
+                height: 36,
+                alignContent: 'center',
+                display: 'flex',
+                justifyContent: 'center',
+                padding: 8,
+                paddingLeft: 15,
+                paddingRight: 15,
+              }}
+            >
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}
+              >
+                {event.eventType}
+              </Text>
+            </View>
+          </View>
+        </View>
+>>>>>>> Stashed changes
       )}
     </TouchableOpacity>
   );
