@@ -1,8 +1,9 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { Platform, ScrollView, UIManager } from 'react-native';
 import { View } from 'react-native';
 import EventCard from '../components/cards/EventCard';
 import { Event } from '@knighthacks/hackathon';
+import CountDown from '../components/CountDown';
 
 const testJSON: Event[] = [
   {
@@ -39,6 +40,12 @@ const testJSON: Event[] = [
   },
 ];
 
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
+
 /**
  * The Schedule page for knight hacks.
  *
@@ -54,6 +61,7 @@ function Schedule(): JSX.Element {
           alignContent: 'center',
         }}
       >
+        <CountDown />
         {testJSON.map((event) => (
           <EventCard event={event} key={event.name} />
         ))}
