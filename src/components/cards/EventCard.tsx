@@ -12,6 +12,7 @@ import dayjs from 'dayjs';
 import { toHourMinute } from '../../util/date';
 import CalendarButton from '../CalendarButton';
 import { useState } from 'react';
+import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface EventCardProps {
   event: Event;
@@ -28,9 +29,22 @@ export default function EventCard({ event }: EventCardProps) {
     setExpanded(!expanded);
   }
 
+  let thisCardStyle =
+    useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
+  let thisHeadingStyle =
+    useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
+  let thisPrimaryTextStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.textPrimaryDark
+      : CardStyles.textPrimaryLight;
+  let thisSecondaryTextStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.textSecondaryDark
+      : CardStyles.textSecondaryLight;
+
   return (
     <TouchableOpacity
-      style={CardStyles.card}
+      style={thisCardStyle}
       onPress={toggleExpand}
       activeOpacity={1}
     >
@@ -43,8 +57,8 @@ export default function EventCard({ event }: EventCardProps) {
             />
           </View>
           <View style={CardStyles.headerTitle}>
-            <Text style={CardStyles.heading}>{event.name}</Text>
-            <Text style={{ color: 'gray' }}>
+            <Text style={thisHeadingStyle}>{event.name}</Text>
+            <Text style={thisPrimaryTextStyle}>
               {`${dayjs(event.dateTime).format('MMMM Do')}, ${dayjs(
                 event.dateTime
               ).fromNow()}`}
@@ -61,8 +75,8 @@ export default function EventCard({ event }: EventCardProps) {
           marginTop: 10,
         }}
       >
-        <Text style={{ fontWeight: '700' }}>{event.loc}</Text>
-        <Text style={{ fontWeight: '500', color: 'gray' }}>
+        <Text style={thisSecondaryTextStyle}>{event.loc}</Text>
+        <Text style={thisPrimaryTextStyle}>
           {`${toHourMinute(event.dateTime)} - ${toHourMinute(
             event.endDateTime
           )}`}

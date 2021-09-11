@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { Sponsor } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
+import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface SponsorCardProps {
   sponsor: Sponsor;
@@ -24,8 +25,17 @@ const tierColor = (tier: string) => {
  * Represents a singular card for a given sponsor.
  */
 export default function SponsorCard({ sponsor }: SponsorCardProps) {
+  let thisCardStyle =
+    useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
+  let thisHeadingStyle =
+    useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
+  let thisPrimaryTextStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.textPrimaryDark
+      : CardStyles.textPrimaryLight;
+
   return (
-    <View style={CardStyles.card}>
+    <View style={thisCardStyle}>
       <View style={CardStyles.header}>
         <View style={CardStyles.headerImageContainer}>
           <Image
@@ -34,8 +44,8 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
           />
         </View>
         <View style={CardStyles.headerTitle}>
-          <Text style={CardStyles.heading}>{sponsor.sponsorName}</Text>
-          <Text>{sponsor.email}</Text>
+          <Text style={thisHeadingStyle}>{sponsor.sponsorName}</Text>
+          <Text style={thisPrimaryTextStyle}>{sponsor.email}</Text>
         </View>
       </View>
       <View
