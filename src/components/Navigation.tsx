@@ -29,7 +29,6 @@ function RootStack(): JSX.Element {
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
   const currentTheme = isDarkTheme ? DarkTheme : DefaultTheme;
   const toggleImage = isDarkTheme ? 'moon' : 'sun';
-  const toggleImageColor = isDarkTheme ? 'white' : 'black';
 
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
@@ -81,7 +80,7 @@ function RootStack(): JSX.Element {
           },
           headerRight: () => (
             <TouchableOpacity style={{ marginRight: 15 }} onPress={toggleTheme}>
-              <Feather name={toggleImage} size={24} color={toggleImageColor} />
+              <Feather name={toggleImage} size={30} color={"white"} />
             </TouchableOpacity>
           ),
         }}
