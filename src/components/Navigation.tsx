@@ -3,11 +3,7 @@
 import React from 'react';
 import About from '../screens/About';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { 
-  TouchableOpacity, 
-  ImageBackground,
-  View,
-} from 'react-native';
+import { TouchableOpacity, ImageBackground, View } from 'react-native';
 import {
   NavigationContainer,
   DarkTheme,
@@ -80,7 +76,7 @@ function RootStack(): JSX.Element {
           },
           headerRight: () => (
             <TouchableOpacity style={{ marginRight: 15 }} onPress={toggleTheme}>
-              <Feather name={toggleImage} size={30} color={"white"} />
+              <Feather name={toggleImage} size={30} color={'white'} />
             </TouchableOpacity>
           ),
         }}
