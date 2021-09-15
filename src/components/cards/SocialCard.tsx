@@ -1,12 +1,21 @@
 import React from 'react';
 import { View, Text, Pressable, Linking } from 'react-native';
 
-export type Social = {
-  type: string;
+export enum SocialTypes {
+  Discord,
+  Website,
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+}
+
+export interface Social {
+  type: SocialTypes;
   text: string;
   url: string;
-  logo: any;
-};
+  logo: JSX.Element;
+}
 
 export interface SocialCardProps {
   social: Social;
