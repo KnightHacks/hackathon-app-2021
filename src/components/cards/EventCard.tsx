@@ -9,10 +9,13 @@ import {
 import CardStyles from '../../styles/cardStyles';
 import { Event } from '@knighthacks/hackathon';
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { toHourMinute } from '../../util/date';
 import CalendarButton from '../CalendarButton';
 import { useState } from 'react';
 import { useTheme, DarkTheme } from '@react-navigation/native';
+
+dayjs.extend(relativeTime);
 
 export interface EventCardProps {
   event: Event;
