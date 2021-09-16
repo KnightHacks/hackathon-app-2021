@@ -77,7 +77,10 @@ function RootStack(): JSX.Element {
               paddingBottom: 0,
             },
             headerRight: () => (
-              <TouchableOpacity style={{ marginRight: 15 }} onPress={toggleTheme}>
+              <TouchableOpacity 
+                style={{ marginRight: 15 }} 
+                onPress={toggleTheme}
+              >
                 <Feather name={toggleImage} size={30} color={'white'} />
               </TouchableOpacity>
             ),
