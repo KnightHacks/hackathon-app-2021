@@ -3,6 +3,7 @@ import React from 'react';
 import { Alert, TouchableOpacity } from 'react-native';
 import * as Calendar from 'expo-calendar';
 import { Event } from '@knighthacks/hackathon';
+import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface CalendarButtonProps {
   event: Event;
@@ -33,9 +34,11 @@ async function onPress(event: Event) {
 export default function CalendarButton({
   event,
 }: CalendarButtonProps): JSX.Element {
+  let buttonColor = useTheme() == DarkTheme ? 'white' : 'black';
+
   return (
     <TouchableOpacity onPress={() => onPress(event)}>
-      <Feather name="calendar" size={24} color="black" />
+      <Feather name="calendar" size={24} color={buttonColor} />
     </TouchableOpacity>
   );
 }

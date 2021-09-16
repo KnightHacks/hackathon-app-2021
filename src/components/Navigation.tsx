@@ -3,8 +3,12 @@
 import React from 'react';
 import About from '../screens/About';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { ImageBackground, View } from 'react-native';
+import { TouchableOpacity, ImageBackground, View } from 'react-native';
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import Sponsors from '../screens/Sponsors';
@@ -19,9 +23,17 @@ const Tab = createBottomTabNavigator();
  * The root navigation stack of the application.
  */
 function RootStack(): JSX.Element {
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+  const currentTheme = isDarkTheme ? DarkTheme : DefaultTheme;
+  const toggleImage = isDarkTheme ? 'moon' : 'sun';
+
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
   return (
     <>
-      <NavigationContainer>
+      <NavigationContainer theme={currentTheme}>
         <Tab.Navigator
           screenOptions={{
             headerTitleStyle: {
@@ -64,6 +76,14 @@ function RootStack(): JSX.Element {
               height: 60,
               paddingBottom: 0,
             },
+            headerRight: () => (
+              <TouchableOpacity
+                style={{ marginRight: 15 }}
+                onPress={toggleTheme}
+              >
+                <Feather name={toggleImage} size={30} color={'white'} />
+              </TouchableOpacity>
+            ),
           }}
         >
           <Tab.Screen

@@ -12,6 +12,7 @@ import dayjs from 'dayjs';
 import { toHourMinute } from '../../util/date';
 import CalendarButton from '../CalendarButton';
 import { useState } from 'react';
+import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface EventCardProps {
   event: Event;
@@ -28,23 +29,44 @@ export default function EventCard({ event }: EventCardProps) {
     setExpanded(!expanded);
   }
 
+  let thisCardStyle =
+    useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
+  let thisHeadingStyle =
+    useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
+  let thisTextPrimaryStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.textPrimaryDark
+      : CardStyles.textPrimaryLight;
+  let thisTextSecondaryStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.textSecondaryDark
+      : CardStyles.textSecondaryLight;
+  let thisTextTertiaryStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.textTertiaryDark
+      : CardStyles.textTertiaryLight;
+  let thisHeaderImageContainerStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.headerImageContainerDark
+      : CardStyles.headerImageContainerLight;
+
   return (
     <TouchableOpacity
-      style={CardStyles.card}
+      style={thisCardStyle}
       onPress={toggleExpand}
       activeOpacity={1}
     >
       <View style={[CardStyles.header, { justifyContent: 'space-between' }]}>
         <View style={{ display: 'flex', flexDirection: 'row' }}>
-          <View style={CardStyles.headerImageContainer}>
+          <View style={thisHeaderImageContainerStyle}>
             <Image
               style={CardStyles.headerImage}
               source={{ uri: event.image }}
             />
           </View>
           <View style={CardStyles.headerTitle}>
-            <Text style={CardStyles.heading}>{event.name}</Text>
-            <Text style={{ color: 'gray' }}>
+            <Text style={thisHeadingStyle}>{event.name}</Text>
+            <Text style={thisTextPrimaryStyle}>
               {`${dayjs(event.dateTime).format('MMMM Do')}, ${dayjs(
                 event.dateTime
               ).fromNow()}`}
@@ -61,38 +83,16 @@ export default function EventCard({ event }: EventCardProps) {
           marginTop: 10,
         }}
       >
-        <View
-          style={{
-            backgroundColor: '#f2f2f2',
-            borderRadius: 5,
-            padding: 5,
-          }}
-        >
-          <Text style={{ fontWeight: '500' }}>{event.loc}</Text>
-        </View>
-
-        <View
-          style={{
-            backgroundColor: '#f2f2f2',
-            borderRadius: 5,
-            padding: 5,
-          }}
-        >
-          <Text
-            style={{
-              fontWeight: '500',
-              color: 'black',
-            }}
-          >
-            {`${toHourMinute(event.dateTime)} - ${toHourMinute(
-              event.endDateTime
-            )}`}
-          </Text>
-        </View>
+        <Text style={thisTextSecondaryStyle}>{event.loc}</Text>
+        <Text style={thisTextPrimaryStyle}>
+          {`${toHourMinute(event.dateTime)} - ${toHourMinute(
+            event.endDateTime
+          )}`}
+        </Text>
       </View>
       {expanded && (
         <View>
-          <Text style={{ marginTop: 10 }}>{event.description}</Text>
+          <Text style={thisTextTertiaryStyle}>{event.description}</Text>
           <View
             style={{
               marginTop: 10,

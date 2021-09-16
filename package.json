@@ -49,15 +49,18 @@
     "jest": "^26.6.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-icons": "^4.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-dotenv": "^3.2.0",
     "react-native-gesture-handler": "~1.10.3",
+    "react-native-paper": "^4.9.2",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.6.0",
     "react-native-web": "~0.13.12",
     "react-test-renderer": "^16.14.0",
-    "sentry-expo": "^4.0.1"
+    "sentry-expo": "^4.0.1",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "@babel/core": "~7.14.6",
