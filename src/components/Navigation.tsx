@@ -32,18 +32,18 @@ function RootStack(): JSX.Element {
   };
 
   return (
-  <>
-    <NavigationContainer theme={currentTheme}>
-      <Tab.Navigator
-        screenOptions={{
-          headerTitleStyle: {
-            fontSize: 25,
-            fontWeight: '700',
-            alignSelf: 'flex-start',
-            color: 'white',
-          },
-          headerBackground: () => (
-            <ImageBackground
+    <>
+      <NavigationContainer theme={currentTheme}>
+        <Tab.Navigator
+          screenOptions={{
+            headerTitleStyle: {
+              fontSize: 25,
+              fontWeight: '700',
+              alignSelf: 'flex-start',
+              color: 'white',
+            },
+            headerBackground: () => (
+              <ImageBackground
                 style={{
                   width: '100%',
                   height: '100%',
@@ -60,29 +60,29 @@ function RootStack(): JSX.Element {
                   }}
                 />
               </ImageBackground>
-          ),
-          headerTitleAlign: 'left',
-          tabBarShowLabel: false,
-          tabBarIconStyle: {
-            height: 50,
-          },
-          tabBarStyle: {
-            alignContent: 'center',
-            position: 'absolute',
-            bottom: 25,
-            left: 45,
-            right: 45,
-            borderRadius: 45,
-            height: 60,
-            paddingBottom: 0,
-          },
-          headerRight: () => (
-            <TouchableOpacity style={{ marginRight: 15 }} onPress={toggleTheme}>
-              <Feather name={toggleImage} size={30} color={'white'} />
-            </TouchableOpacity>
-          ),
-        }}
-      >
+            ),
+            headerTitleAlign: 'left',
+            tabBarShowLabel: false,
+            tabBarIconStyle: {
+              height: 50,
+            },
+            tabBarStyle: {
+              alignContent: 'center',
+              position: 'absolute',
+              bottom: 25,
+              left: 45,
+              right: 45,
+              borderRadius: 45,
+              height: 60,
+              paddingBottom: 0,
+            },
+            headerRight: () => (
+              <TouchableOpacity style={{ marginRight: 15 }} onPress={toggleTheme}>
+                <Feather name={toggleImage} size={30} color={'white'} />
+              </TouchableOpacity>
+            ),
+          }}
+        >
           <Tab.Screen
             name="Home"
             component={Schedule}
