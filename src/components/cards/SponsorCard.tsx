@@ -33,11 +33,15 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
     useTheme() == DarkTheme
       ? CardStyles.textPrimaryDark
       : CardStyles.textPrimaryLight;
+  let thisHeaderImageContainerStyle =
+    useTheme() == DarkTheme
+      ? CardStyles.headerImageContainerDark
+      : CardStyles.headerImageContainerLight;
 
   return (
     <View style={thisCardStyle}>
       <View style={CardStyles.header}>
-        <View style={CardStyles.headerImageContainer}>
+        <View style={thisHeaderImageContainerStyle}>
           <Image
             style={CardStyles.headerImage}
             source={{ uri: sponsor.logo }}

@@ -7,12 +7,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'center',
   },
-  headerImageContainer: {
-    display: 'flex',
-    padding: 10,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 10,
-  },
   headerImage: {
     width: 45,
     height: 45,
@@ -47,6 +41,17 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     overflow: 'hidden',
   },
+  socialCardLight: {
+    alignContent: 'flex-start',
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    padding: 15,
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 15,
+    borderRadius: 25,
+    overflow: 'hidden',
+  },
   headingLight: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -60,6 +65,22 @@ const styles = StyleSheet.create({
   textSecondaryLight: {
     color: 'black',
     fontWeight: '700',
+  },
+  textTertiaryLight: {
+    color: 'black',
+    marginTop: 10,
+  },
+  textQuaternaryLight: {
+    color:  'black',
+    fontSize: 22,
+    width: '86%',
+    paddingLeft: 5,
+  },
+  headerImageContainerLight: {
+    display: 'flex',
+    padding: 10,
+    backgroundColor: '#f2f2f2',
+    borderRadius: 10,
   },
 
   //The following is dark theme specific
@@ -76,6 +97,17 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     overflow: 'hidden',
   },
+  socialCardDark: {
+    alignContent: 'flex-start',
+    flexDirection: 'row',
+    backgroundColor: '#5e5d5d',
+    padding: 15,
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 15,
+    borderRadius: 25,
+    overflow: 'hidden',
+  },
   headingDark: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -83,12 +115,28 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   textPrimaryDark: {
-    color: '#808080',
+    color: 'white',//808080
     fontWeight: '500',
   },
   textSecondaryDark: {
-    color: '#AFAFAF',
+    color: 'white',//AFAFAF
     fontWeight: '700',
+  },
+  textTertiaryDark: {
+    color: 'white',
+    marginTop: 10,
+  },
+  textQuaternaryDark: {
+    color:  'white',
+    fontSize: 22,
+    width: '86%',
+    paddingLeft: 5,
+  },
+  headerImageContainerDark: {
+    display: 'flex',
+    padding: 10,
+    backgroundColor: '#5e5d5d',
+    borderRadius: 10,
   },
 });
 
