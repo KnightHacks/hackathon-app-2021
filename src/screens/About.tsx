@@ -18,8 +18,8 @@ const socials: Social[] = [
   },
   {
     type: SocialTypes.Website,
-    text: 'Check out our Website',
-    url: 'https://www.knighthacks.org/',
+    text: 'Check out our Team',
+    url: 'https://club.knighthacks.org/',
     logo: <Foundation name="web" size={28} color="black" />,
   },
   {
