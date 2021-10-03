@@ -4,6 +4,8 @@ import SponsorCard from '../../../src/components/cards/SponsorCard';
 import renderer from 'react-test-renderer';
 import { Sponsor } from '@knighthacks/hackathon';
 
+jest.useFakeTimers();
+
 const testSponsor: Sponsor = {
   sponsorName: 'Name',
   logo: 'URL',
