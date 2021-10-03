@@ -4,8 +4,6 @@ import { Event } from '@knighthacks/hackathon';
 import renderer from 'react-test-renderer';
 import EventCard from '../../../src/components/cards/EventCard';
 
-jest.useFakeTimers();
-
 const testEvent: Event = {
   name: 'Name',
   dateTime: new Date('October 3, 2021 05:54:00'),
