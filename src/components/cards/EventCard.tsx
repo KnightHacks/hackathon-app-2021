@@ -19,7 +19,7 @@ export interface EventCardProps {
 }
 
 /**
- * Represents a singular card for a given sponsor.
+ * Represents a singular card for a given event.
  */
 export default function EventCard({ event }: EventCardProps) {
   const [expanded, setExpanded] = useState(false);
@@ -67,9 +67,7 @@ export default function EventCard({ event }: EventCardProps) {
           <View style={CardStyles.headerTitle}>
             <Text style={thisHeadingStyle}>{event.name}</Text>
             <Text style={thisTextPrimaryStyle}>
-              {`${dayjs(event.dateTime).format('MMMM Do')}, ${dayjs(
-                event.dateTime
-              ).fromNow()}`}
+              {`${dayjs(event.dateTime).format('MMMM Do')}`}
             </Text>
           </View>
         </View>
