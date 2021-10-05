@@ -15,7 +15,9 @@ import Sponsors from '../screens/Sponsors';
 import Schedule from '../screens/Schedule';
 import { StatusBar } from 'expo-status-bar';
 // @ts-ignore
-import koipond from '../assets/KoiFishPond.png';
+import lightpond from '../assets/KoiFishPond.png';
+// @ts-ignore
+import darkpond from '../assets/NightPond.png';
 
 const Tab = createBottomTabNavigator();
 
@@ -49,7 +51,7 @@ function RootStack(): JSX.Element {
                   height: '100%',
                   opacity: 50,
                 }}
-                source={koipond}
+                source={isDarkTheme ? darkpond : lightpond}
               >
                 <View
                   style={{
