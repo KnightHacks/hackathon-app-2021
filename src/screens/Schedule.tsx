@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Platform, ScrollView, UIManager } from 'react-native';
 import { View } from 'react-native';
 import EventCard from '../components/cards/EventCard';
 import { Event } from '@knighthacks/hackathon';
 import CountDown from '../components/CountDown';
+import SearchBar from '../components/SearchBar';
 
 const testJSON: Event[] = [
   {
@@ -52,6 +53,13 @@ if (Platform.OS === 'android') {
  * @returns {JSX.Element}
  */
 function Schedule(): JSX.Element {
+  const [events, setEvents] = useState(testJSON);
+
+  const onSearch = (e: string) => {
+    const filteredEvents = testJSON.filter((event) => event.name.startsWith(e));
+    setEvents(filteredEvents);
+  };
+
   return (
     <ScrollView contentInset={{ bottom: 30 }}>
       <View
@@ -62,7 +70,8 @@ function Schedule(): JSX.Element {
         }}
       >
         <CountDown />
-        {testJSON.map((event) => (
+        <SearchBar onChangeText={onSearch} />
+        {events.map((event) => (
           <EventCard event={event} key={event.name} />
         ))}
       </View>
