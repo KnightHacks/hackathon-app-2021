@@ -5,8 +5,9 @@ import {
   SENTRY_API_KEY,
 } from 'react-native-dotenv';
 
-export default {
-  expo: {
+export default ({ config }) => {
+  return {
+    ...config,
     hooks: {
       postPublish: [
         {
@@ -19,5 +20,5 @@ export default {
         },
       ],
     },
-  },
+  };
 };
