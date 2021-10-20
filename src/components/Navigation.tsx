@@ -12,8 +12,8 @@ import {
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import Sponsors from '../screens/Sponsors';
-import Schedule from '../screens/Schedule';
 import { StatusBar } from 'expo-status-bar';
+import Home from '../screens/Home';
 // @ts-ignore
 import koipond from '../assets/KoiFishPond.png';
 
@@ -88,7 +88,7 @@ function RootStack(): JSX.Element {
         >
           <Tab.Screen
             name="Home"
-            component={Schedule}
+            component={Home}
             options={{
               tabBarIcon: ({ color }) => (
                 <Feather name="home" size={24} color={color} />
