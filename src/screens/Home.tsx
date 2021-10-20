@@ -1,15 +1,17 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import BaseStyles from '../styles/baseStyles';
+import { ScrollView } from 'react-native';
+import CountDown from '../components/CountDown';
+import Schedule from './Schedule';
 
 /**
  * The Home page for knight hacks.
  */
 function Home(): JSX.Element {
   return (
-    <View style={BaseStyles.expandedContainer}>
-      <Text>Home Screen</Text>
-    </View>
+    <ScrollView contentInset={{ bottom: 30 }}>
+      <CountDown />
+      <Schedule />
+    </ScrollView>
   );
 }
 

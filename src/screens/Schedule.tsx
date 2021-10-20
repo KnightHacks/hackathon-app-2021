@@ -1,9 +1,8 @@
 import React from 'react';
-import { Platform, ScrollView, UIManager } from 'react-native';
+import { Platform, UIManager } from 'react-native';
 import { View } from 'react-native';
 import EventCard from '../components/cards/EventCard';
 import { Event } from '@knighthacks/hackathon';
-import CountDown from '../components/CountDown';
 
 const testJSON: Event[] = [
   {
@@ -53,20 +52,17 @@ if (Platform.OS === 'android') {
  */
 function Schedule(): JSX.Element {
   return (
-    <ScrollView contentInset={{ bottom: 30 }}>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignContent: 'center',
-        }}
-      >
-        <CountDown />
-        {testJSON.map((event) => (
-          <EventCard event={event} key={event.name} />
-        ))}
-      </View>
-    </ScrollView>
+    <View
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'center',
+      }}
+    >
+      {testJSON.map((event) => (
+        <EventCard event={event} key={event.name} />
+      ))}
+    </View>
   );
 }
 
