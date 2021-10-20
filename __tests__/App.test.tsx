@@ -6,7 +6,7 @@ import Home from '../src/screens/Home';
 
 describe('it renders the app', () => {
   it('renders the home screen', async () => {
-    const tree = await renderer.create(<Home />).toJSON();
+    const tree = renderer.create(<Home />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
