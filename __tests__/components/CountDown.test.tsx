@@ -1,7 +1,12 @@
+jest.useFakeTimers();
 import { diffHourMinSec } from '../../src/components/CountDown';
 import dayjs from 'dayjs';
 
 const start = dayjs(new Date(2021, 11, 10, 16, 30, 0));
+
+beforeEach(() => {
+  jest.useFakeTimers();
+});
 
 describe('Countdown Time Function', () => {
   test('calculates same dates', () => {

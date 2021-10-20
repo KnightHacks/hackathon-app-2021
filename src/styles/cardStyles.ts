@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   textQuaternaryLight: {
-    color:  'black',
+    color: 'black',
     fontSize: 22,
     width: '86%',
     paddingLeft: 5,
@@ -115,11 +115,11 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   textPrimaryDark: {
-    color: 'white',//808080
+    color: 'white', //808080
     fontWeight: '500',
   },
   textSecondaryDark: {
-    color: 'white',//AFAFAF
+    color: 'white', //AFAFAF
     fontWeight: '700',
   },
   textTertiaryDark: {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   textQuaternaryDark: {
-    color:  'white',
+    color: 'white',
     fontSize: 22,
     width: '86%',
     paddingLeft: 5,
