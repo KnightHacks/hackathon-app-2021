@@ -56,7 +56,9 @@ function Schedule(): JSX.Element {
   const [events, setEvents] = useState(testJSON);
 
   const onSearch = (e: string) => {
-    const filteredEvents = testJSON.filter((event) => event.name.startsWith(e));
+    const filteredEvents = testJSON.filter((event) =>
+      event.name.toLowerCase().includes(e.toLowerCase())
+    );
     setEvents(filteredEvents);
   };
 
