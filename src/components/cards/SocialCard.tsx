@@ -24,11 +24,11 @@ export interface SocialCardProps {
 }
 
 export default function SocialCard({ social }: SocialCardProps) {
-  let thisSocialCardStyle =
+  let socialCardStyle =
     useTheme() == DarkTheme
       ? CardStyles.socialCardDark
       : CardStyles.socialCardLight;
-  let thisTextQuaternaryStyle =
+  let textQuaternaryStyle =
     useTheme() == DarkTheme
       ? CardStyles.textQuaternaryDark
       : CardStyles.textQuaternaryLight;
@@ -39,13 +39,13 @@ export default function SocialCard({ social }: SocialCardProps) {
         Linking.openURL(social.url);
       }}
     >
-      <View style={thisSocialCardStyle}>
+      <View style={socialCardStyle}>
         <View
           style={{ width: '14%', alignContent: 'center', alignItems: 'center' }}
         >
           {social.logo}
         </View>
-        <Text style={thisTextQuaternaryStyle}>{social.text}</Text>
+        <Text style={textQuaternaryStyle}>{social.text}</Text>
       </View>
     </Pressable>
   );

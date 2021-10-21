@@ -25,31 +25,31 @@ const tierColor = (tier: string) => {
  * Represents a singular card for a given sponsor.
  */
 export default function SponsorCard({ sponsor }: SponsorCardProps) {
-  let thisCardStyle =
+  let cardStyle =
     useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
-  let thisHeadingStyle =
+  let headingStyle =
     useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
-  let thisPrimaryTextStyle =
+  let primaryTextStyle =
     useTheme() == DarkTheme
       ? CardStyles.textPrimaryDark
       : CardStyles.textPrimaryLight;
-  let thisHeaderImageContainerStyle =
+  let headerImageContainerStyle =
     useTheme() == DarkTheme
       ? CardStyles.headerImageContainerDark
       : CardStyles.headerImageContainerLight;
 
   return (
-    <View style={thisCardStyle}>
+    <View style={cardStyle}>
       <View style={CardStyles.header}>
-        <View style={thisHeaderImageContainerStyle}>
+        <View style={headerImageContainerStyle}>
           <Image
             style={CardStyles.headerImage}
             source={{ uri: sponsor.logo }}
           />
         </View>
         <View style={CardStyles.headerTitle}>
-          <Text style={thisHeadingStyle}>{sponsor.sponsorName}</Text>
-          <Text style={thisPrimaryTextStyle}>{sponsor.email}</Text>
+          <Text style={headingStyle}>{sponsor.sponsorName}</Text>
+          <Text style={primaryTextStyle}>{sponsor.email}</Text>
         </View>
       </View>
       <View
