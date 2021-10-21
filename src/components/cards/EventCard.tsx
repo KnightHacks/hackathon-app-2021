@@ -32,44 +32,44 @@ export default function EventCard({ event }: EventCardProps) {
     setExpanded(!expanded);
   }
 
-  let thisCardStyle =
+  let cardStyle =
     useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
-  let thisHeadingStyle =
+  let headingStyle =
     useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
-  let thisTextPrimaryStyle =
+  let textPrimaryStyle =
     useTheme() == DarkTheme
       ? CardStyles.textPrimaryDark
       : CardStyles.textPrimaryLight;
-  let thisTextSecondaryStyle =
+  let textSecondaryStyle =
     useTheme() == DarkTheme
       ? CardStyles.textSecondaryDark
       : CardStyles.textSecondaryLight;
-  let thisTextTertiaryStyle =
+  let textTertiaryStyle =
     useTheme() == DarkTheme
       ? CardStyles.textTertiaryDark
       : CardStyles.textTertiaryLight;
-  let thisHeaderImageContainerStyle =
+  let headerImageContainerStyle =
     useTheme() == DarkTheme
       ? CardStyles.headerImageContainerDark
       : CardStyles.headerImageContainerLight;
 
   return (
     <TouchableOpacity
-      style={thisCardStyle}
+      style={cardStyle}
       onPress={toggleExpand}
       activeOpacity={1}
     >
       <View style={[CardStyles.header, { justifyContent: 'space-between' }]}>
         <View style={{ display: 'flex', flexDirection: 'row' }}>
-          <View style={thisHeaderImageContainerStyle}>
+          <View style={headerImageContainerStyle}>
             <Image
               style={CardStyles.headerImage}
               source={{ uri: event.image }}
             />
           </View>
           <View style={CardStyles.headerTitle}>
-            <Text style={thisHeadingStyle}>{event.name}</Text>
-            <Text style={thisTextPrimaryStyle}>
+            <Text style={headingStyle}>{event.name}</Text>
+            <Text style={textPrimaryStyle}>
               {`${dayjs(event.dateTime).format('MMMM Do')}`}
             </Text>
           </View>
@@ -84,8 +84,8 @@ export default function EventCard({ event }: EventCardProps) {
           marginTop: 10,
         }}
       >
-        <Text style={thisTextSecondaryStyle}>{event.loc}</Text>
-        <Text style={thisTextPrimaryStyle}>
+        <Text style={textSecondaryStyle}>{event.loc}</Text>
+        <Text style={textPrimaryStyle}>
           {`${toHourMinute(event.dateTime)} - ${toHourMinute(
             event.endDateTime
           )}`}
@@ -93,7 +93,7 @@ export default function EventCard({ event }: EventCardProps) {
       </View>
       {expanded && (
         <View>
-          <Text style={thisTextTertiaryStyle}>{event.description}</Text>
+          <Text style={textTertiaryStyle}>{event.description}</Text>
           <View
             style={{
               marginTop: 10,
