@@ -1,8 +1,9 @@
-import React from 'react';
-import { Platform, UIManager } from 'react-native';
+import React, { useState } from 'react';
+import { Platform, ScrollView, UIManager } from 'react-native';
 import { View } from 'react-native';
 import EventCard from '../components/cards/EventCard';
 import { Event } from '@knighthacks/hackathon';
+import SearchBar from '../components/SearchBar';
 
 const testJSON: Event[] = [
   {
@@ -51,18 +52,30 @@ if (Platform.OS === 'android') {
  * @returns {JSX.Element}
  */
 function Schedule(): JSX.Element {
+  const [events, setEvents] = useState(testJSON);
+
+  const onSearch = (e: string) => {
+    const filteredEvents = testJSON.filter((event) =>
+      event.name.toLowerCase().includes(e.toLowerCase())
+    );
+    setEvents(filteredEvents);
+  };
+
   return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignContent: 'center',
-      }}
-    >
-      {testJSON.map((event) => (
-        <EventCard event={event} key={event.name} />
-      ))}
-    </View>
+    <ScrollView contentInset={{ bottom: 30 }}>
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignContent: 'center',
+        }}
+      >
+        <SearchBar onChangeText={onSearch} />
+        {events.map((event) => (
+          <EventCard event={event} key={event.name} />
+        ))}
+      </View>
+    </ScrollView>
   );
 }
 
