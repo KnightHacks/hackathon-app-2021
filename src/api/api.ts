@@ -22,15 +22,11 @@ const api = {
           return [];
         } else {
           // Successful, cache and return list of events
-          // eslint-disable-next-line
-          console.log('Storing events in cache');
           AsyncStorage.setItem('events', JSON.stringify(events));
           return events;
         }
       } else {
         // Had events cached, return them
-        // eslint-disable-next-line
-        console.log('Grabbing from cache');
         const cachedEvents = JSON.parse(eventsList);
         return cachedEvents;
       }
