@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import CardStyles from '../../styles/cardStyles';
-import { Event } from '@knighthacks/hackathon';
+import { APIEvent } from '@knighthacks/hackathon';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { toHourMinute } from '../../util/date';
@@ -18,7 +18,7 @@ import { useTheme, DarkTheme } from '@react-navigation/native';
 dayjs.extend(relativeTime);
 
 export interface EventCardProps {
-  event: Event;
+  event: APIEvent;
 }
 
 /**
@@ -70,7 +70,7 @@ export default function EventCard({ event }: EventCardProps) {
           <View style={CardStyles.headerTitle}>
             <Text style={headingStyle}>{event.name}</Text>
             <Text style={textPrimaryStyle}>
-              {`${dayjs(event.dateTime).format('MMMM Do')}`}
+              {`${dayjs(event.date_time).format('MMMM Do')}`}
             </Text>
           </View>
         </View>
@@ -86,8 +86,8 @@ export default function EventCard({ event }: EventCardProps) {
       >
         <Text style={textSecondaryStyle}>{event.loc}</Text>
         <Text style={textPrimaryStyle}>
-          {`${toHourMinute(event.dateTime)} - ${toHourMinute(
-            event.endDateTime
+          {`${toHourMinute(new Date(event.date_time))} - ${toHourMinute(
+            new Date(event.end_date_time)
           )}`}
         </Text>
       </View>
@@ -119,7 +119,7 @@ export default function EventCard({ event }: EventCardProps) {
                   color: 'white',
                 }}
               >
-                {event.eventType}
+                {event.event_type}
               </Text>
             </View>
           </View>
