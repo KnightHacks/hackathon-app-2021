@@ -22,7 +22,7 @@ const api = {
           return [];
         } else {
           // Successful, cache and return list of events
-          AsyncStorage.setItem('events', JSON.stringify(events));
+          await AsyncStorage.setItem('events', JSON.stringify(events));
           return events;
         }
       } else {

@@ -18,9 +18,8 @@ if (Platform.OS === 'android') {
  * @returns {JSX.Element}
  */
 function Schedule(): JSX.Element {
-  const empty: APIEvent[] = [];
-  const [events, setEvents] = useState(empty);
-  const [curEvents, setCurEvents] = useState(empty);
+  const [events, setEvents] = useState<APIEvent[]>([]);
+  const [curEvents, setCurEvents] = useState<APIEvent[]>([]);
 
   useEffect(() => {
     async function getEvents() {
