@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import * as Calendar from 'expo-calendar';
 // @ts-ignore
 import { SENTRY_DSN } from 'react-native-dotenv';
+import api from './api/api';
 
 Sentry.init({
   dsn: SENTRY_DSN,
@@ -24,6 +25,8 @@ dayjs.extend(advancedFormat);
 export function App(): JSX.Element {
   useEffect(() => {
     (async () => {
+      const res = await api.getEvents();
+      console.log(res);
       await Calendar.requestCalendarPermissionsAsync();
     })();
   }, []);
