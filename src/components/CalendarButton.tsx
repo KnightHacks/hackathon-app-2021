@@ -13,8 +13,8 @@ async function onPress(event: APIEvent) {
   const defaultCalender = await Calendar.getDefaultCalendarAsync();
   await Calendar.createEventAsync(defaultCalender.id, {
     title: event.name,
-    startDate: event.date_time,
-    endDate: event.end_date_time,
+    startDate: new Date(event.date_time),
+    endDate: new Date(event.end_date_time),
     location: event.loc,
     notes: event.description,
     alarms: [
