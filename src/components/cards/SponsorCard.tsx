@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { Sponsor } from '@knighthacks/hackathon';
+import { APISponsor } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
 import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface SponsorCardProps {
-  sponsor: Sponsor;
+  sponsor: APISponsor;
 }
 
 const tierColor = (tier: string) => {
@@ -48,18 +48,18 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
           />
         </View>
         <View style={CardStyles.headerTitle}>
-          <Text style={headingStyle}>{sponsor.sponsorName}</Text>
-          <Text style={primaryTextStyle}>{sponsor.email}</Text>
+          <Text style={headingStyle}>{sponsor.sponsor_name}</Text>
+          <Text style={primaryTextStyle}>{sponsor.description}</Text>
         </View>
       </View>
       <View
         style={[
           CardStyles.tierBadge,
-          { backgroundColor: tierColor(sponsor.subscriptionTier) },
+          { backgroundColor: tierColor(sponsor.subscription_tier) },
         ]}
       >
         <Text style={{ fontWeight: 'bold', color: 'white' }}>
-          {sponsor.subscriptionTier.toUpperCase()}
+          {sponsor.subscription_tier.toUpperCase()}
         </Text>
       </View>
     </View>

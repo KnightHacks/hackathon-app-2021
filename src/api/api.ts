@@ -1,5 +1,5 @@
-import { APIEvent } from '@knighthacks/hackathon';
-import { EventResponse } from './types';
+import { APIEvent, APISponsor } from '@knighthacks/hackathon';
+import { EventResponse, SponsorResponse } from './types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const url: string = 'https://stagingapi.knighthacks.org/api';
@@ -32,6 +32,29 @@ const api = {
       }
     } catch (e) {
       throw new Error('Something went wrong trying to fetch events!');
+    }
+  },
+  async getSponsors(): Promise<APISponsor[]> {
+    try {
+      const sponsorsList = await AsyncStorage.getItem('sponsors');
+
+      if (!sponsorsList) {
+        // eslint-disable-next-line
+        const response = await fetch(url + '/sponsors/get_all_events/');
+        const { sponsors, status }: SponsorResponse = await response.json();
+
+        if (status !== 'success') {
+          return [];
+        } else {
+          await AsyncStorage.setItem('sponsors', JSON.stringify(sponsors));
+          return sponsors;
+        }
+      } else {
+        const cachedSponsors = JSON.parse(sponsorsList);
+        return cachedSponsors;
+      }
+    } catch (e) {
+      throw new Error('Something went wrong trying to fetch sponsors!');
     }
   },
 };
