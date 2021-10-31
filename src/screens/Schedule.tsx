@@ -44,29 +44,31 @@ function Schedule(): JSX.Element {
   };
 
   return (
-    <ScrollView contentInset={{ bottom: 30 }}>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignContent: 'center',
-        }}
-      >
-        {notEmpty && (
-          <>
-            <SearchBar onChangeText={onSearch} />
-            {curEvents.map((event) => (
-              <EventCard event={event} key={event.name} />
-            ))}
-          </>
-        )}
-        {!notEmpty && (
-          <ErrorMsgContainer
-            message={`Coming soon!\n\n Keep an eye out on this page for updates in the coming week.`}
-          />
-        )}
-      </View>
-    </ScrollView>
+    <>
+      {notEmpty && <SearchBar onChangeText={onSearch} />}
+      <ScrollView contentInset={{ bottom: 30 }}>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignContent: 'center',
+          }}
+        >
+          {notEmpty && (
+            <>
+              {curEvents.map((event) => (
+                <EventCard event={event} key={event.name} />
+              ))}
+            </>
+          )}
+          {!notEmpty && (
+            <ErrorMsgContainer
+              message={`Coming soon!\n\n Keep an eye out on this page for updates in the coming week.`}
+            />
+          )}
+        </View>
+      </ScrollView>
+    </>
   );
 }
 
