@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import EventCard from '../components/cards/EventCard';
 import { APIEvent } from '@knighthacks/hackathon';
 import SearchBar from '../components/SearchBar';
+import ErrorMsgContainer from '../components/ErrorMsgContainer';
 import api from '../api/api';
 
 if (Platform.OS === 'android') {
@@ -20,6 +21,7 @@ if (Platform.OS === 'android') {
 function Schedule(): JSX.Element {
   const [events, setEvents] = useState<APIEvent[]>([]);
   const [curEvents, setCurEvents] = useState<APIEvent[]>([]);
+  const [notEmpty, setNotEmpty] = useState(false);
 
   useEffect(() => {
     async function getEvents() {
@@ -29,6 +31,10 @@ function Schedule(): JSX.Element {
     }
     getEvents();
   }, []);
+
+  useEffect(() => {
+    setNotEmpty(events.length !== 0 ? true : false);
+  }, [events]);
 
   const onSearch = (e: string) => {
     const filteredEvents = events.filter((event) =>
@@ -46,10 +52,19 @@ function Schedule(): JSX.Element {
           alignContent: 'center',
         }}
       >
-        <SearchBar onChangeText={onSearch} />
-        {curEvents.map((event) => (
-          <EventCard event={event} key={event.name} />
-        ))}
+        {notEmpty && (
+          <>
+            <SearchBar onChangeText={onSearch} />
+            {curEvents.map((event) => (
+              <EventCard event={event} key={event.name} />
+            ))}
+          </>
+        )}
+        {!notEmpty && (
+          <ErrorMsgContainer
+            message={`Coming soon!\n\n Keep an eye out on this page for updates in the coming week.`}
+          />
+        )}
       </View>
     </ScrollView>
   );
