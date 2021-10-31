@@ -33,7 +33,6 @@
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
     "@knighthacks/hackathon": "^0.1.0-dev-fb53d14",
-    "@react-native-async-storage/async-storage": "^1.15.9",
     "@react-native-community/masked-view": "0.1.11",
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^6.0.1",
