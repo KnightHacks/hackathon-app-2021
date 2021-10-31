@@ -1,6 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { APIEvent } from '@knighthacks/hackathon';
 import { EventResponse } from './types';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const url: string = 'https://stagingapi.knighthacks.org/api';
 
@@ -21,8 +21,12 @@ const api = {
           // Unsuccessful, dont cache, return empty list
           return [];
         } else {
-          // Successful, cache and return list of events
-          await AsyncStorage.setItem('events', JSON.stringify(events));
+          // Successful
+          if (events.length !== 0) {
+            // Event list isnt empty, cache
+            await AsyncStorage.setItem('events', JSON.stringify(events));
+          }
+          // Dont cache if empty list, can return as is if empty
           return events;
         }
       } else {
