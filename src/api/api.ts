@@ -22,22 +22,14 @@ const api = {
   },
   async getSponsors(): Promise<APISponsor[]> {
     try {
-      const sponsorsList = await AsyncStorage.getItem('sponsors');
+      // eslint-disable-next-line
+      const response = await fetch(url + '/sponsors/get_all_sponsors/');
+      const { sponsors, status }: SponsorResponse = await response.json();
 
-      if (!sponsorsList) {
-        // eslint-disable-next-line
-        const response = await fetch(url + '/sponsors/get_all_events/');
-        const { sponsors, status }: SponsorResponse = await response.json();
-
-        if (status !== 'success') {
-          return [];
-        } else {
-          await AsyncStorage.setItem('sponsors', JSON.stringify(sponsors));
-          return sponsors;
-        }
+      if (status !== 'success') {
+        return [];
       } else {
-        const cachedSponsors = JSON.parse(sponsorsList);
-        return cachedSponsors;
+        return sponsors;
       }
     } catch (e) {
       throw new Error('Something went wrong trying to fetch sponsors!');
