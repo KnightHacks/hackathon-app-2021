@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import SocialCard from '../components/cards/SocialCard';
 import { Social, SocialTypes } from '../components/cards/SocialCard';
 import {
@@ -53,7 +53,7 @@ const socials: Social[] = [
  */
 function About(): JSX.Element {
   return (
-    <ScrollView contentInset={{ bottom: 30 }}>
+    <View>
       <View
         style={{
           display: 'flex',
@@ -65,7 +65,7 @@ function About(): JSX.Element {
           <SocialCard social={social} key={SocialTypes[social.type]} />
         ))}
       </View>
-    </ScrollView>
+    </View>
   );
 }
 

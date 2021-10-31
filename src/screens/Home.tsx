@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import CountDown from '../components/CountDown';
 import Schedule from './Schedule';
 
@@ -8,10 +8,10 @@ import Schedule from './Schedule';
  */
 function Home(): JSX.Element {
   return (
-    <ScrollView contentInset={{ bottom: 30 }}>
+    <View>
       <CountDown />
       <Schedule />
-    </ScrollView>
+    </View>
   );
 }
 
