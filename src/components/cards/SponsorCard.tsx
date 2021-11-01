@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Pressable, Linking } from 'react-native';
 import { APISponsor } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
 import { useTheme, DarkTheme } from '@react-navigation/native';
@@ -39,7 +39,12 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
       : CardStyles.headerImageContainerLight;
 
   return (
-    <View style={cardStyle}>
+    <Pressable
+      style={cardStyle}
+      onPress={() => {
+        Linking.openURL(sponsor.socials.linkedIn);
+      }}
+    >
       <View style={CardStyles.header}>
         <View style={headerImageContainerStyle}>
           <Image
@@ -62,6 +67,6 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
           {sponsor.subscription_tier.toUpperCase()}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
