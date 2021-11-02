@@ -5,6 +5,7 @@ import {
   Image,
   LayoutAnimation,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 import CardStyles from '../../styles/cardStyles';
 import { APIEvent } from '@knighthacks/hackathon';
@@ -26,6 +27,35 @@ export interface EventCardProps {
  */
 export default function EventCard({ event }: EventCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const tagStyle = StyleSheet.create({
+    base: {
+      borderRadius: 18,
+      height: 36,
+      alignContent: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      padding: 8,
+      paddingLeft: 15,
+      paddingRight: 15,
+    },
+  });
+
+  function getTagColor(type: string) {
+    switch (type.toLowerCase()) {
+      case 'general':
+        return '#F6BC41';
+      case 'social':
+        return '#F94E32';
+      case 'mini-compettion':
+        return '#E39BCF';
+      case 'non-technical workshop':
+        return '#4D8D7C';
+      case 'beginner specific event':
+        return '#6AACC5';
+      default:
+        return '#8e43f6';
+    }
+  }
 
   function toggleExpand() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -84,7 +114,7 @@ export default function EventCard({ event }: EventCardProps) {
           marginTop: 10,
         }}
       >
-        <Text style={textSecondaryStyle}>{event.loc}</Text>
+        <Text style={textSecondaryStyle}>{'Hopin'}</Text>
         <Text style={textPrimaryStyle}>
           {`${toHourMinute(new Date(event.date_time))} - ${toHourMinute(
             new Date(event.end_date_time)
@@ -102,15 +132,8 @@ export default function EventCard({ event }: EventCardProps) {
           >
             <View
               style={{
-                backgroundColor: '#8e43f6',
-                borderRadius: 18,
-                height: 36,
-                alignContent: 'center',
-                display: 'flex',
-                justifyContent: 'center',
-                padding: 8,
-                paddingLeft: 15,
-                paddingRight: 15,
+                backgroundColor: getTagColor(event.event_type),
+                ...tagStyle.base,
               }}
             >
               <Text
