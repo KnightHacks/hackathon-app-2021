@@ -4,6 +4,7 @@ import CountStyles from '../styles/countStyles';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import { useTheme, DarkTheme } from '@react-navigation/native';
 
 dayjs.extend(duration);
 dayjs.extend(isSameOrBefore);
@@ -16,6 +17,11 @@ const start = dayjs(new Date(2021, 11, 10, 16, 30, 0)),
 export default function CountDown(): JSX.Element {
   const [now, setNow] = useState(dayjs());
 
+  let cardStyle =
+    useTheme() == DarkTheme ? CountStyles.cardDark : CountStyles.cardLight;
+  let imageStyle =
+    useTheme() == DarkTheme ? CountStyles.imageDark : CountStyles.imageLight;
+
   /* Update the countdown */
   useEffect(() => {
     setTimeout(() => {
@@ -25,8 +31,8 @@ export default function CountDown(): JSX.Element {
 
   return (
     <View style={CountStyles.container}>
-      <View style={CountStyles.card}>
-        <Image style={CountStyles.image} source={clock} />
+      <View style={cardStyle}>
+        <Image style={imageStyle} source={clock} />
         <Text style={CountStyles.contents}>
           {(() => {
             if (now.isSameOrBefore(start))

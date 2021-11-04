@@ -2,19 +2,19 @@ import { Feather } from '@expo/vector-icons';
 import React from 'react';
 import { Alert, TouchableOpacity } from 'react-native';
 import * as Calendar from 'expo-calendar';
-import { Event } from '@knighthacks/hackathon';
+import { APIEvent } from '@knighthacks/hackathon';
 import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface CalendarButtonProps {
-  event: Event;
+  event: APIEvent;
 }
 
-async function onPress(event: Event) {
+async function onPress(event: APIEvent) {
   const defaultCalender = await Calendar.getDefaultCalendarAsync();
   await Calendar.createEventAsync(defaultCalender.id, {
     title: event.name,
-    startDate: event.dateTime,
-    endDate: event.endDateTime,
+    startDate: new Date(event.date_time),
+    endDate: new Date(event.end_date_time),
     location: event.loc,
     notes: event.description,
     alarms: [
