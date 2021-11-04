@@ -5,9 +5,10 @@ import {
   Image,
   LayoutAnimation,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 import CardStyles from '../../styles/cardStyles';
-import { Event } from '@knighthacks/hackathon';
+import { APIEvent } from '@knighthacks/hackathon';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { toHourMinute } from '../../util/date';
@@ -18,7 +19,7 @@ import { useTheme, DarkTheme } from '@react-navigation/native';
 dayjs.extend(relativeTime);
 
 export interface EventCardProps {
-  event: Event;
+  event: APIEvent;
 }
 
 /**
@@ -26,6 +27,35 @@ export interface EventCardProps {
  */
 export default function EventCard({ event }: EventCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const tagStyle = StyleSheet.create({
+    base: {
+      borderRadius: 18,
+      height: 36,
+      alignContent: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      padding: 8,
+      paddingLeft: 15,
+      paddingRight: 15,
+    },
+  });
+
+  function getTagColor(type: string) {
+    switch (type.toLowerCase()) {
+      case 'general':
+        return '#F6BC41';
+      case 'social':
+        return '#F94E32';
+      case 'mini-compettion':
+        return '#E39BCF';
+      case 'non-technical':
+        return '#4D8D7C';
+      case 'beginner':
+        return '#6AACC5';
+      default:
+        return '#8e43f6';
+    }
+  }
 
   function toggleExpand() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -70,7 +100,7 @@ export default function EventCard({ event }: EventCardProps) {
           <View style={CardStyles.headerTitle}>
             <Text style={headingStyle}>{event.name}</Text>
             <Text style={textPrimaryStyle}>
-              {`${dayjs(event.dateTime).format('MMMM Do')}`}
+              {`${dayjs(event.date_time).format('MMMM Do')}`}
             </Text>
           </View>
         </View>
@@ -84,10 +114,10 @@ export default function EventCard({ event }: EventCardProps) {
           marginTop: 10,
         }}
       >
-        <Text style={textSecondaryStyle}>{event.loc}</Text>
+        <Text style={textSecondaryStyle}>{'Hopin'}</Text>
         <Text style={textPrimaryStyle}>
-          {`${toHourMinute(event.dateTime)} - ${toHourMinute(
-            event.endDateTime
+          {`${toHourMinute(new Date(event.date_time))} - ${toHourMinute(
+            new Date(event.end_date_time)
           )}`}
         </Text>
       </View>
@@ -102,15 +132,8 @@ export default function EventCard({ event }: EventCardProps) {
           >
             <View
               style={{
-                backgroundColor: '#8e43f6',
-                borderRadius: 18,
-                height: 36,
-                alignContent: 'center',
-                display: 'flex',
-                justifyContent: 'center',
-                padding: 8,
-                paddingLeft: 15,
-                paddingRight: 15,
+                backgroundColor: getTagColor(event.event_type),
+                ...tagStyle.base,
               }}
             >
               <Text
@@ -119,7 +142,7 @@ export default function EventCard({ event }: EventCardProps) {
                   color: 'white',
                 }}
               >
-                {event.eventType}
+                {event.event_type}
               </Text>
             </View>
           </View>

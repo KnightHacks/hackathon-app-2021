@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   socialCardDark: {
     alignContent: 'flex-start',
     flexDirection: 'row',
-    backgroundColor: '#5e5d5d',
+    backgroundColor: '#343434',
     padding: 15,
     marginLeft: 15,
     marginRight: 15,
