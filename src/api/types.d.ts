@@ -1,6 +1,6 @@
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 
 export interface EventResponse {
-  events: APIEvent[];
+  events: APIEventData[];
   status: string;
 }

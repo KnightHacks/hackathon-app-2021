@@ -1,10 +1,10 @@
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 import { EventResponse } from './types';
 
 const url: string = 'https://stagingapi.knighthacks.org/api';
 
 const api = {
-  async getEvents(): Promise<APIEvent[]> {
+  async getEvents(): Promise<APIEventData[]> {
     try {
       // eslint-disable-next-line
       const response = await fetch(url + '/events/get_all_events/');

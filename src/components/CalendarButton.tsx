@@ -2,14 +2,14 @@ import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { Alert, TouchableOpacity } from 'react-native';
 import * as Calendar from 'expo-calendar';
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface CalendarButtonProps {
-  event: APIEvent;
+  event: APIEventData;
 }
 
-async function onPress(event: APIEvent) {
+async function onPress(event: APIEventData) {
   const defaultCalender = await Calendar.getDefaultCalendarAsync();
   await Calendar.createEventAsync(defaultCalender.id, {
     title: event.name,

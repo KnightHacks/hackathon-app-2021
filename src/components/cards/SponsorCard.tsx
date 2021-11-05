@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { Sponsor } from '@knighthacks/hackathon';
+import { SponsorData } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
 import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface SponsorCardProps {
-  sponsor: Sponsor;
+  sponsor: SponsorData;
 }
 
 const tierColor = (tier: string) => {
