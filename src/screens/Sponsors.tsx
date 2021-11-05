@@ -1,4 +1,4 @@
-import { APISponsor } from '@knighthacks/hackathon';
+import { APISponsorData } from '@knighthacks/hackathon';
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -9,7 +9,7 @@ import api from '../api/api';
  * The Sponsors page for knight hacks.
  */
 function Sponsors(): JSX.Element {
-  const [sponsors, setSponsors] = useState<APISponsor[]>([]);
+  const [sponsors, setSponsors] = useState<APISponsorData[]>([]);
 
   useEffect(() => {
     async function getSponsors() {
@@ -29,7 +29,7 @@ function Sponsors(): JSX.Element {
         }}
       >
         {sponsors.map((sponsor) => (
-          <SponsorCard sponsor={sponsor} key={sponsor.username} />
+          <SponsorCard sponsor={sponsor} key={sponsor.sponsor_name} />
         ))}
       </View>
     </ScrollView>

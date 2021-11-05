@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Image, Pressable, Linking } from 'react-native';
-import { APISponsor } from '@knighthacks/hackathon';
+import { APISponsorData } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
 import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface SponsorCardProps {
-  sponsor: APISponsor;
+  sponsor: APISponsorData;
 }
 
 const tierColor = (tier: string) => {
@@ -42,7 +42,8 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
     <Pressable
       style={cardStyle}
       onPress={() => {
-        Linking.openURL(sponsor.socials.linkedIn);
+        if (sponsor.socials !== undefined)
+          Linking.openURL(sponsor.socials.linkedIn);
       }}
     >
       <View style={CardStyles.header}>

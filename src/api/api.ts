@@ -1,10 +1,10 @@
-import { APIEvent } from '@knighthacks/hackathon';
-import { EventResponse } from './types';
+import { APIEventData, APISponsorData } from '@knighthacks/hackathon';
+import { EventResponse, SponsorResponse } from './types';
 
 const url: string = 'https://stagingapi.knighthacks.org/api';
 
 const api = {
-  async getEvents(): Promise<APIEvent[]> {
+  async getEvents(): Promise<APIEventData[]> {
     try {
       // eslint-disable-next-line
       const response = await fetch(url + '/events/get_all_events/');
@@ -20,7 +20,7 @@ const api = {
       throw new Error('Something went wrong trying to fetch events!');
     }
   },
-  async getSponsors(): Promise<APISponsor[]> {
+  async getSponsors(): Promise<APISponsorData[]> {
     try {
       // eslint-disable-next-line
       const response = await fetch(url + '/sponsors/get_all_sponsors/');
