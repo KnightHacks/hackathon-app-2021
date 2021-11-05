@@ -2,14 +2,14 @@ import 'react-native';
 import React from 'react';
 import SponsorCard from '../../../src/components/cards/SponsorCard';
 import renderer from 'react-test-renderer';
-import { Sponsor } from '@knighthacks/hackathon';
+import { SponsorData } from '@knighthacks/hackathon';
 
-const testSponsor: Sponsor = {
+const testSponsor: SponsorData = {
   sponsorName: 'Name',
   logo: 'URL',
   email: 'Email',
   subscriptionTier: 'Subscription tier',
-  username: 'Username',
+  description: 'Description',
 };
 
 it('renders the sponsor card', async () => {
@@ -26,7 +26,4 @@ it('renders the sponsor card', async () => {
   expect(
     testInstance.findByType(SponsorCard).props.sponsor.subscriptionTier
   ).toBe('Subscription tier');
-  expect(testInstance.findByType(SponsorCard).props.sponsor.username).toBe(
-    'Username'
-  );
 });

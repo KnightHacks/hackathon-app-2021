@@ -1,10 +1,10 @@
 import 'react-native';
 import React from 'react';
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 import renderer from 'react-test-renderer';
 import EventCard from '../../../src/components/cards/EventCard';
 
-const testEvent: APIEvent = {
+const testEvent: APIEventData = {
   name: 'Name',
   date_time: 'October 3, 2021 05:54:00',
   end_date_time: 'October 3, 2021 05:54:00',
@@ -13,7 +13,6 @@ const testEvent: APIEvent = {
   image: 'URL',
   link: 'URL',
   loc: 'Location',
-  sponsors: [],
   user: 'User',
   attendees_count: 999,
   description: 'Description',
@@ -24,17 +23,17 @@ it('renders the event card', async () => {
   const testInstance = eventCard.root;
   expect(eventCard).toBeDefined();
   expect(testInstance.findByType(EventCard).props.event.name).toBe('Name');
-  expect(testInstance.findByType(EventCard).props.event.eventStatus).toBe(
+  expect(testInstance.findByType(EventCard).props.event.event_status).toBe(
     'Event Status'
   );
-  expect(testInstance.findByType(EventCard).props.event.eventType).toBe(
+  expect(testInstance.findByType(EventCard).props.event.event_type).toBe(
     'Event Type'
   );
   expect(testInstance.findByType(EventCard).props.event.image).toBe('URL');
   expect(testInstance.findByType(EventCard).props.event.link).toBe('URL');
   expect(testInstance.findByType(EventCard).props.event.loc).toBe('Location');
   expect(testInstance.findByType(EventCard).props.event.user).toBe('User');
-  expect(testInstance.findByType(EventCard).props.event.attendeesCount).toBe(
+  expect(testInstance.findByType(EventCard).props.event.attendees_count).toBe(
     999
   );
   expect(testInstance.findByType(EventCard).props.event.description).toBe(
