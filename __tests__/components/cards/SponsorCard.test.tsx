@@ -2,14 +2,15 @@ import 'react-native';
 import React from 'react';
 import SponsorCard from '../../../src/components/cards/SponsorCard';
 import renderer from 'react-test-renderer';
-import { Sponsor } from '@knighthacks/hackathon';
+import { APISponsorData } from '@knighthacks/hackathon';
 
-const testSponsor: Sponsor = {
-  sponsorName: 'Name',
+const testSponsor: APISponsorData = {
+  sponsor_name: 'Name',
   logo: 'URL',
   email: 'Email',
-  subscriptionTier: 'Subscription tier',
-  username: 'Username',
+  subscription_tier: 'Subscription tier',
+  description: 'Description',
+  socials: undefined,
 };
 
 it('renders the sponsor card', async () => {

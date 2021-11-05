@@ -1,10 +1,10 @@
 import 'react-native';
 import React from 'react';
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 import renderer from 'react-test-renderer';
 import EventCard from '../../../src/components/cards/EventCard';
 
-const testEvent: APIEvent = {
+const testEvent: APIEventData = {
   name: 'Name',
   date_time: 'October 3, 2021 05:54:00',
   end_date_time: 'October 3, 2021 05:54:00',
@@ -13,7 +13,6 @@ const testEvent: APIEvent = {
   image: 'URL',
   link: 'URL',
   loc: 'Location',
-  sponsors: [],
   user: 'User',
   attendees_count: 999,
   description: 'Description',

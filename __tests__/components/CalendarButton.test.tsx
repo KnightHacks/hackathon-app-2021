@@ -1,9 +1,9 @@
 import CalendarButton from '../../src/components/CalendarButton';
 import renderer from 'react-test-renderer';
 import React from 'react';
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 
-const testJSON: APIEvent = {
+const testJSON: APIEventData = {
   name: 'Learn React Native',
   date_time: 'Septemeber 5, 2021 13:00:00',
   end_date_time: 'Septemeber 5, 2021 13:30:00',
@@ -13,7 +13,6 @@ const testJSON: APIEvent = {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1024px-React.svg.png',
   link: 'https://google.com',
   loc: 'Harris Engineering 101',
-  sponsors: [],
   user: 'testUser',
   attendees_count: 100,
   description:
