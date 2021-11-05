@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, Pressable, Linking } from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 import { APISponsorData } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
 import { useTheme, DarkTheme } from '@react-navigation/native';
@@ -41,10 +41,10 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
   return (
     <Pressable
       style={cardStyle}
-      onPress={() => {
-        if (sponsor.socials !== undefined)
-          Linking.openURL(sponsor.socials.linkedIn);
-      }}
+      // onPress={() => {
+      //   if (sponsor.socials !== undefined)
+      //     Linking.openURL(sponsor.socials.linkedIn);
+      // }}
     >
       <View style={CardStyles.header}>
         <View style={headerImageContainerStyle}>
