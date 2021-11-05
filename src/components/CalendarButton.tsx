@@ -1,9 +1,9 @@
-import { Ionicons } from '@expo/vector-icons';
+// import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { Alert, TouchableOpacity } from 'react-native';
+import { Alert, TouchableOpacity, Text } from 'react-native';
 import * as Calendar from 'expo-calendar';
 import { APIEventData } from '@knighthacks/hackathon';
-import { useTheme, DarkTheme } from '@react-navigation/native';
+// import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface CalendarButtonProps {
   event: APIEventData;
@@ -34,11 +34,16 @@ async function onPress(event: APIEventData) {
 export default function CalendarButton({
   event,
 }: CalendarButtonProps): JSX.Element {
-  let buttonColor = useTheme() == DarkTheme ? 'white' : 'black';
+  // let buttonColor = useTheme() == DarkTheme ? 'white' : 'black';
 
+  // return (
+  //   <TouchableOpacity onPress={() => onPress(event)}>
+  //     <Ionicons name="calendar" size={24} color={buttonColor} />
+  //   </TouchableOpacity>
+  // );
   return (
     <TouchableOpacity onPress={() => onPress(event)}>
-      <Ionicons name="calendar" size={24} color={buttonColor} />
+      <Text>🗓</Text>
     </TouchableOpacity>
   );
 }

@@ -17,6 +17,8 @@ exports[`It renders the calendar button renders button 1`] = `
     }
   }
 >
-  <Text />
+  <Text>
+    Click me
+  </Text>
 </View>
 `;
