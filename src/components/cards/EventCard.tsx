@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import CardStyles from '../../styles/cardStyles';
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { toHourMinute } from '../../util/date';
@@ -19,7 +19,7 @@ import { useTheme, DarkTheme } from '@react-navigation/native';
 dayjs.extend(relativeTime);
 
 export interface EventCardProps {
-  event: APIEvent;
+  event: APIEventData;
 }
 
 /**
