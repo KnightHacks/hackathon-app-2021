@@ -1,4 +1,4 @@
-import { Feather } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { Alert, TouchableOpacity } from 'react-native';
 import * as Calendar from 'expo-calendar';
@@ -38,7 +38,7 @@ export default function CalendarButton({
 
   return (
     <TouchableOpacity onPress={() => onPress(event)}>
-      <Feather name="calendar" size={24} color={buttonColor} />
+      <Ionicons name="calendar" size={24} color={buttonColor} />
     </TouchableOpacity>
   );
 }
