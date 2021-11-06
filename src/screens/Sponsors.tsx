@@ -20,12 +20,13 @@ function Sponsors(): JSX.Element {
   }, []);
 
   return (
-    <ScrollView contentInset={{ bottom: 30 }}>
+    <ScrollView contentInset={{ bottom: 40 }}>
       <View
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignContent: 'center',
+          paddingBottom: '15%',
         }}
       >
         {sponsors.map((sponsor) => (

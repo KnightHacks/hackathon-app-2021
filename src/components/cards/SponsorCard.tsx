@@ -16,6 +16,8 @@ const tierColor = (tier: string) => {
       return '#FFD700';
     case 'diamond':
       return '#add8e6';
+    case 'partner':
+      return '#6AACC5';
     default:
       return '#CD7F32';
   }
@@ -55,11 +57,19 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
       <View
         style={[
           CardStyles.tierBadge,
-          { backgroundColor: tierColor(sponsor.subscription_tier) },
+          {
+            backgroundColor: tierColor(
+              sponsor.subscription_tier.includes('Partner')
+                ? 'Partner'
+                : sponsor.subscription_tier
+            ),
+          },
         ]}
       >
         <Text style={{ fontWeight: 'bold', color: 'white' }}>
-          {sponsor.subscription_tier.toUpperCase()}
+          {sponsor.subscription_tier.includes('Partner')
+            ? 'PARTNER'
+            : sponsor.subscription_tier.toUpperCase()}
         </Text>
       </View>
     </Pressable>

@@ -46,7 +46,7 @@ export default function EventCard({ event }: EventCardProps) {
         return '#F6BC41';
       case 'social':
         return '#F94E32';
-      case 'mini-compettion':
+      case 'mini-competition':
         return '#E39BCF';
       case 'non-technical':
         return '#4D8D7C';
