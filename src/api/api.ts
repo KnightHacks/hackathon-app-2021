@@ -1,7 +1,7 @@
 import { APIEventData, APISponsorData } from '@knighthacks/hackathon';
 import { EventResponse, SponsorResponse } from './types';
 
-const url: string = 'https://stagingapi.knighthacks.org/api';
+const url: string = 'https://api.knighthacks.org/api';
 
 const api = {
   async getEvents(): Promise<APIEventData[]> {

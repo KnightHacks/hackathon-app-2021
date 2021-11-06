@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, Pressable } from 'react-native';
+import { View, Text, Image, Pressable, Linking } from 'react-native';
 import { APISponsorData } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
 import { useTheme, DarkTheme } from '@react-navigation/native';
@@ -9,7 +9,7 @@ export interface SponsorCardProps {
 }
 
 const tierColor = (tier: string) => {
-  switch (tier) {
+  switch (tier.toLowerCase()) {
     case 'silver':
       return '#c0c0c0';
     case 'gold':
@@ -17,7 +17,7 @@ const tierColor = (tier: string) => {
     case 'diamond':
       return '#add8e6';
     default:
-      return 'red';
+      return '#CD7F32';
   }
 };
 
@@ -29,10 +29,6 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
     useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
   let headingStyle =
     useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
-  let primaryTextStyle =
-    useTheme() == DarkTheme
-      ? CardStyles.textPrimaryDark
-      : CardStyles.textPrimaryLight;
   let headerImageContainerStyle =
     useTheme() == DarkTheme
       ? CardStyles.headerImageContainerDark
@@ -41,10 +37,10 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
   return (
     <Pressable
       style={cardStyle}
-      // onPress={() => {
-      //   if (sponsor.socials !== undefined)
-      //     Linking.openURL(sponsor.socials.linkedIn);
-      // }}
+      onPress={() => {
+        //@ts-ignorets
+        Linking.openURL(sponsor.sponsor_website);
+      }}
     >
       <View style={CardStyles.header}>
         <View style={headerImageContainerStyle}>
@@ -55,7 +51,6 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
         </View>
         <View style={CardStyles.headerTitle}>
           <Text style={headingStyle}>{sponsor.sponsor_name}</Text>
-          <Text style={primaryTextStyle}>{sponsor.description}</Text>
         </View>
       </View>
       <View
