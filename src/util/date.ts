@@ -6,5 +6,5 @@ import dayjs from 'dayjs';
  * @returns The formatted date.
  */
 export function toHourMinute(date: Date): string {
-  return dayjs(date).format('h:mm A');
+  return dayjs(date).utc().format('h:mm A');
 }
