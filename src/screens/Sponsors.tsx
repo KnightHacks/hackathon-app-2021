@@ -52,7 +52,6 @@ function Sponsors(): JSX.Element {
   useEffect(() => {
     async function getSponsors() {
       const res = await api.getSponsors();
-      console.log(res);
       setSponsors(res.sort(comparator));
     }
     getSponsors();
