@@ -9,6 +9,7 @@ const testSponsor: APISponsorData = {
   logo: 'URL',
   email: 'Email',
   subscription_tier: 'Subscription tier',
+  sponsor_website: 'www.google.com',
   description: 'Description',
   socials: undefined,
 };
@@ -17,7 +18,7 @@ it('renders the sponsor card', async () => {
   const sponsorCard = renderer.create(<SponsorCard sponsor={testSponsor} />);
   const testInstance = sponsorCard.root;
   expect(sponsorCard).toBeDefined();
-  expect(testInstance.findByType(SponsorCard).props.sponsor.sponsorName).toBe(
+  expect(testInstance.findByType(SponsorCard).props.sponsor.sponsor_name).toBe(
     'Name'
   );
   expect(testInstance.findByType(SponsorCard).props.sponsor.logo).toBe('URL');
@@ -25,9 +26,9 @@ it('renders the sponsor card', async () => {
     'Email'
   );
   expect(
-    testInstance.findByType(SponsorCard).props.sponsor.subscriptionTier
+    testInstance.findByType(SponsorCard).props.sponsor.sponsor_website
+  ).toBe('www.google.com');
+  expect(
+    testInstance.findByType(SponsorCard).props.sponsor.subscription_tier
   ).toBe('Subscription tier');
-  expect(testInstance.findByType(SponsorCard).props.sponsor.username).toBe(
-    'Username'
-  );
 });

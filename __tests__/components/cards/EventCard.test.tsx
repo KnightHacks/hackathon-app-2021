@@ -23,17 +23,17 @@ it('renders the event card', async () => {
   const testInstance = eventCard.root;
   expect(eventCard).toBeDefined();
   expect(testInstance.findByType(EventCard).props.event.name).toBe('Name');
-  expect(testInstance.findByType(EventCard).props.event.eventStatus).toBe(
+  expect(testInstance.findByType(EventCard).props.event.event_status).toBe(
     'Event Status'
   );
-  expect(testInstance.findByType(EventCard).props.event.eventType).toBe(
+  expect(testInstance.findByType(EventCard).props.event.event_type).toBe(
     'Event Type'
   );
   expect(testInstance.findByType(EventCard).props.event.image).toBe('URL');
   expect(testInstance.findByType(EventCard).props.event.link).toBe('URL');
   expect(testInstance.findByType(EventCard).props.event.loc).toBe('Location');
   expect(testInstance.findByType(EventCard).props.event.user).toBe('User');
-  expect(testInstance.findByType(EventCard).props.event.attendeesCount).toBe(
+  expect(testInstance.findByType(EventCard).props.event.attendees_count).toBe(
     999
   );
   expect(testInstance.findByType(EventCard).props.event.description).toBe(
