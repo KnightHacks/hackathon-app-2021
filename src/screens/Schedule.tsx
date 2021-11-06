@@ -46,7 +46,7 @@ function Schedule(): JSX.Element {
   return (
     <>
       {notEmpty && <SearchBar onChangeText={onSearch} />}
-      <ScrollView contentInset={{ bottom: 30 }}>
+      <ScrollView contentInset={{ bottom: 40 }}>
         <View
           style={{
             display: 'flex',
