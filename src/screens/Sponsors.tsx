@@ -1,48 +1,74 @@
-import { Sponsor } from '@knighthacks/hackathon';
-import React from 'react';
+import { APISponsorData } from '@knighthacks/hackathon';
+import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import SponsorCard from '../components/cards/SponsorCard';
+import api from '../api/api';
 
-const testJSON: Sponsor[] = [
-  {
-    sponsorName: 'Apple',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1010px-Apple_logo_black.svg.png',
-    email: 'apple@apple.com',
-    subscriptionTier: 'diamond',
-    username: 'sponsor_name',
-  },
-  {
-    sponsorName: 'Microsoft',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png',
-    email: 'microsoft@outlook.com',
-    subscriptionTier: 'silver',
-    username: 'sponsor_name2',
-  },
-  {
-    sponsorName: 'Google',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/600px-Google_%22G%22_Logo.svg.png',
-    email: 'google@gmail.com',
-    subscriptionTier: 'gold',
-    username: 'sponsor_name3',
-  },
-];
+const comparator = (lhs: APISponsorData, rhs: APISponsorData) => {
+  if (lhs.subscription_tier === 'Gold') {
+    if (
+      rhs.subscription_tier === 'Silver' ||
+      rhs.subscription_tier === 'Bronze'
+    ) {
+      return -1;
+    }
+
+    return lhs.sponsor_name.localeCompare(rhs.sponsor_name);
+  }
+
+  if (lhs.subscription_tier === 'Silver') {
+    if (rhs.subscription_tier === 'Gold') {
+      return 1;
+    }
+
+    if (rhs.subscription_tier === 'Bronze') {
+      return -1;
+    }
+
+    return lhs.sponsor_name.localeCompare(rhs.sponsor_name);
+  }
+
+  if (lhs.subscription_tier === 'Bronze') {
+    if (
+      rhs.subscription_tier === 'Gold' ||
+      rhs.subscription_tier === 'Silver'
+    ) {
+      return 1;
+    }
+
+    return lhs.sponsor_name.localeCompare(rhs.sponsor_name);
+  }
+
+  return 0;
+};
 
 /**
  * The Sponsors page for knight hacks.
  */
 function Sponsors(): JSX.Element {
+  const [sponsors, setSponsors] = useState<APISponsorData[]>([]);
+
+  useEffect(() => {
+    async function getSponsors() {
+      const res = await api.getSponsors();
+      setSponsors(res.sort(comparator));
+    }
+    getSponsors();
+  }, []);
+
   return (
-    <ScrollView contentInset={{ bottom: 30 }}>
+    <ScrollView contentInset={{ bottom: 40 }}>
       <View
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignContent: 'center',
+          paddingBottom: '15%',
         }}
       >
-        {testJSON.map((sponsor) => (
-          <SponsorCard sponsor={sponsor} key={sponsor.username} />
+        {sponsors.map((sponsor) => (
+          <SponsorCard sponsor={sponsor} key={sponsor.sponsor_name} />
         ))}
       </View>
     </ScrollView>

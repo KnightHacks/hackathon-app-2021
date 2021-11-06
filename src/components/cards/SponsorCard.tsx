@@ -1,23 +1,25 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import { Sponsor } from '@knighthacks/hackathon';
+import { View, Text, Image, Pressable, Linking } from 'react-native';
+import { APISponsorData } from '@knighthacks/hackathon';
 import CardStyles from '../../styles/cardStyles';
 import { useTheme, DarkTheme } from '@react-navigation/native';
 
 export interface SponsorCardProps {
-  sponsor: Sponsor;
+  sponsor: APISponsorData;
 }
 
 const tierColor = (tier: string) => {
-  switch (tier) {
+  switch (tier.toLowerCase()) {
     case 'silver':
       return '#c0c0c0';
     case 'gold':
       return '#FFD700';
     case 'diamond':
       return '#add8e6';
+    case 'partner':
+      return '#6AACC5';
     default:
-      return 'red';
+      return '#CD7F32';
   }
 };
 
@@ -29,17 +31,18 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
     useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
   let headingStyle =
     useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
-  let primaryTextStyle =
-    useTheme() == DarkTheme
-      ? CardStyles.textPrimaryDark
-      : CardStyles.textPrimaryLight;
   let headerImageContainerStyle =
     useTheme() == DarkTheme
       ? CardStyles.headerImageContainerDark
       : CardStyles.headerImageContainerLight;
 
   return (
-    <View style={cardStyle}>
+    <Pressable
+      style={cardStyle}
+      onPress={() => {
+        Linking.openURL(sponsor.sponsor_website);
+      }}
+    >
       <View style={CardStyles.header}>
         <View style={headerImageContainerStyle}>
           <Image
@@ -48,20 +51,27 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
           />
         </View>
         <View style={CardStyles.headerTitle}>
-          <Text style={headingStyle}>{sponsor.sponsorName}</Text>
-          <Text style={primaryTextStyle}>{sponsor.email}</Text>
+          <Text style={headingStyle}>{sponsor.sponsor_name}</Text>
         </View>
       </View>
       <View
         style={[
           CardStyles.tierBadge,
-          { backgroundColor: tierColor(sponsor.subscriptionTier) },
+          {
+            backgroundColor: tierColor(
+              sponsor.subscription_tier.includes('Partner')
+                ? 'Partner'
+                : sponsor.subscription_tier
+            ),
+          },
         ]}
       >
         <Text style={{ fontWeight: 'bold', color: 'white' }}>
-          {sponsor.subscriptionTier.toUpperCase()}
+          {sponsor.subscription_tier.includes('Partner')
+            ? 'PARTNER'
+            : sponsor.subscription_tier.toUpperCase()}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 }

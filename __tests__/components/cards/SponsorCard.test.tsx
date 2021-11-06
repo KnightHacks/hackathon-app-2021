@@ -2,21 +2,23 @@ import 'react-native';
 import React from 'react';
 import SponsorCard from '../../../src/components/cards/SponsorCard';
 import renderer from 'react-test-renderer';
-import { Sponsor } from '@knighthacks/hackathon';
+import { APISponsorData } from '@knighthacks/hackathon';
 
-const testSponsor: Sponsor = {
-  sponsorName: 'Name',
+const testSponsor: APISponsorData = {
+  sponsor_name: 'Name',
   logo: 'URL',
   email: 'Email',
-  subscriptionTier: 'Subscription tier',
-  username: 'Username',
+  subscription_tier: 'Subscription tier',
+  sponsor_website: 'www.google.com',
+  description: 'Description',
+  socials: undefined,
 };
 
 it('renders the sponsor card', async () => {
   const sponsorCard = renderer.create(<SponsorCard sponsor={testSponsor} />);
   const testInstance = sponsorCard.root;
   expect(sponsorCard).toBeDefined();
-  expect(testInstance.findByType(SponsorCard).props.sponsor.sponsorName).toBe(
+  expect(testInstance.findByType(SponsorCard).props.sponsor.sponsor_name).toBe(
     'Name'
   );
   expect(testInstance.findByType(SponsorCard).props.sponsor.logo).toBe('URL');
@@ -24,9 +26,9 @@ it('renders the sponsor card', async () => {
     'Email'
   );
   expect(
-    testInstance.findByType(SponsorCard).props.sponsor.subscriptionTier
+    testInstance.findByType(SponsorCard).props.sponsor.sponsor_website
+  ).toBe('www.google.com');
+  expect(
+    testInstance.findByType(SponsorCard).props.sponsor.subscription_tier
   ).toBe('Subscription tier');
-  expect(testInstance.findByType(SponsorCard).props.sponsor.username).toBe(
-    'Username'
-  );
 });

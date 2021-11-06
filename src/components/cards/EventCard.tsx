@@ -8,18 +8,20 @@ import {
   StyleSheet,
 } from 'react-native';
 import CardStyles from '../../styles/cardStyles';
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import utc from 'dayjs/plugin/utc';
 import { toHourMinute } from '../../util/date';
 import CalendarButton from '../CalendarButton';
 import { useState } from 'react';
 import { useTheme, DarkTheme } from '@react-navigation/native';
 
 dayjs.extend(relativeTime);
+dayjs.extend(utc);
 
 export interface EventCardProps {
-  event: APIEvent;
+  event: APIEventData;
 }
 
 /**
@@ -46,7 +48,7 @@ export default function EventCard({ event }: EventCardProps) {
         return '#F6BC41';
       case 'social':
         return '#F94E32';
-      case 'mini-compettion':
+      case 'mini-competition':
         return '#E39BCF';
       case 'non-technical':
         return '#4D8D7C';
@@ -100,7 +102,7 @@ export default function EventCard({ event }: EventCardProps) {
           <View style={CardStyles.headerTitle}>
             <Text style={headingStyle}>{event.name}</Text>
             <Text style={textPrimaryStyle}>
-              {`${dayjs(event.date_time).format('MMMM Do')}`}
+              {`${dayjs(event.date_time).utc().format('MMMM Do')}`}
             </Text>
           </View>
         </View>

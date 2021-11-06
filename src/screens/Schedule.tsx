@@ -2,14 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { Platform, ScrollView, UIManager } from 'react-native';
 import { View } from 'react-native';
 import EventCard from '../components/cards/EventCard';
-import { APIEvent } from '@knighthacks/hackathon';
+import { APIEventData } from '@knighthacks/hackathon';
 import SearchBar from '../components/SearchBar';
 import ErrorMsgContainer from '../components/ErrorMsgContainer';
 import api from '../api/api';
+import dayjs from 'dayjs';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+dayjs.extend(isSameOrBefore);
 
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
+
+function comparator(lhs: APIEventData, rhs: APIEventData) {
+  // Same start time, check end
+  if (dayjs(lhs.date_time).isSame(dayjs(rhs.date_time))) {
+    if (dayjs(lhs.end_date_time).isSameOrBefore(dayjs(rhs.end_date_time))) {
+      return -1;
+    } else {
+      return 1;
+    }
+  } else {
+    if (dayjs(lhs.date_time).isBefore(dayjs(rhs.date_time))) {
+      return -1;
+    } else {
+      return 1;
+    }
   }
 }
 
@@ -19,15 +39,16 @@ if (Platform.OS === 'android') {
  * @returns {JSX.Element}
  */
 function Schedule(): JSX.Element {
-  const [events, setEvents] = useState<APIEvent[]>([]);
-  const [curEvents, setCurEvents] = useState<APIEvent[]>([]);
+  const [events, setEvents] = useState<APIEventData[]>([]);
+  const [curEvents, setCurEvents] = useState<APIEventData[]>([]);
   const [notEmpty, setNotEmpty] = useState(false);
 
   useEffect(() => {
     async function getEvents() {
       const res = await api.getEvents();
-      setEvents(res);
-      setCurEvents(res);
+      const sorted = res.sort(comparator);
+      setEvents(sorted);
+      setCurEvents(sorted);
     }
     getEvents();
   }, []);
@@ -46,7 +67,7 @@ function Schedule(): JSX.Element {
   return (
     <>
       {notEmpty && <SearchBar onChangeText={onSearch} />}
-      <ScrollView contentInset={{ bottom: 30 }}>
+      <ScrollView contentInset={{ bottom: 40 }}>
         <View
           style={{
             display: 'flex',
