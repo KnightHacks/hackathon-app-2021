@@ -15,6 +15,7 @@ web-build/
 
 # testing snapshots
 __tests__/__snapshots__
+__tests__/components/__snapshots__
 
 # jest
 .jest/
