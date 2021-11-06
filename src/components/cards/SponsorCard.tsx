@@ -38,7 +38,6 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
     <Pressable
       style={cardStyle}
       onPress={() => {
-        //@ts-ignorets
         Linking.openURL(sponsor.sponsor_website);
       }}
     >
