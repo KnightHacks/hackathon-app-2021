@@ -68,7 +68,10 @@ function Schedule(): JSX.Element {
   return (
     <View>
       {notEmpty && <SearchBar onChangeText={onSearch} />}
-      <ScrollView contentContainerStyle={scrollPadding()}>
+      <ScrollView
+        contentContainerStyle={scrollPadding()}
+        contentInset={{ bottom: 40 }}
+      >
         <View
           style={{
             display: 'flex',
