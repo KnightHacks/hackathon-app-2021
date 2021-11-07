@@ -58,7 +58,11 @@ function Sponsors(): JSX.Element {
   }, []);
 
   return (
-    <ScrollView contentInset={{ bottom: 40 }}>
+    <ScrollView
+      contentInset={{ bottom: 40 }}
+      contentContainerStyle={{ paddingBottom: 40 }}
+      automaticallyAdjustContentInsets={false}
+    >
       <View
         style={{
           display: 'flex',

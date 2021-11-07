@@ -6,6 +6,7 @@ import { APIEventData } from '@knighthacks/hackathon';
 import SearchBar from '../components/SearchBar';
 import ErrorMsgContainer from '../components/ErrorMsgContainer';
 import api from '../api/api';
+import { scrollPadding } from '../util/smallDevicePadding';
 import dayjs from 'dayjs';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 dayjs.extend(isSameOrBefore);
@@ -65,9 +66,9 @@ function Schedule(): JSX.Element {
   };
 
   return (
-    <>
+    <View>
       {notEmpty && <SearchBar onChangeText={onSearch} />}
-      <ScrollView contentInset={{ bottom: 40 }}>
+      <ScrollView contentContainerStyle={scrollPadding()}>
         <View
           style={{
             display: 'flex',
@@ -75,21 +76,20 @@ function Schedule(): JSX.Element {
             alignContent: 'center',
           }}
         >
-          {notEmpty && (
+          {notEmpty ? (
             <>
               {curEvents.map((event) => (
                 <EventCard event={event} key={event.name} />
               ))}
             </>
-          )}
-          {!notEmpty && (
+          ) : (
             <ErrorMsgContainer
               message={`Coming soon!\n\n Keep an eye out on this page for updates in the coming week.`}
             />
           )}
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 }
 
