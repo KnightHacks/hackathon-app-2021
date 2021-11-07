@@ -1,7 +1,7 @@
 {
   "expo": {
+    "name": "Knight Hacks",
     "entryPoint": "./src/App.tsx",
-    "name": "hackathon-app-2021",
     "slug": "hackathon-app-2021",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,12 +16,16 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
+      "bundleIdentifier": "org.knighthacks.knighthacks",
+      "buildNumber": "1.0.0",
       "supportsTablet": true,
       "infoPlist": {
         "NSRemindersUsageDescription": "The calendar is accessed to add hackathon workshops."
       }
     },
     "android": {
+      "package": "org.knighthacks.knighthacks",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
