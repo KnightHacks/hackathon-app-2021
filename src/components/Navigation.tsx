@@ -15,7 +15,7 @@ import Sponsors from '../screens/Sponsors';
 import { StatusBar } from 'expo-status-bar';
 import Home from '../screens/Home';
 // @ts-ignore
-import lightpond from '../assets/KoiFishPond.png';
+import lightpond from '../assets/DayPond.png';
 // @ts-ignore
 import darkpond from '../assets/NightPond.png';
 
