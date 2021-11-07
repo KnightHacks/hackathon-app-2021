@@ -9,8 +9,8 @@ import { useTheme, DarkTheme } from '@react-navigation/native';
 dayjs.extend(duration);
 dayjs.extend(isSameOrBefore);
 
-const start = dayjs(new Date(2021, 10, 12, 21, 0, 0)),
-  end = dayjs(new Date(2021, 10, 14, 12, 0, 0)),
+const start = dayjs(new Date(2021, 10, 12, 22, 0, 0)),
+  end = dayjs(new Date(2021, 10, 14, 9, 0, 0)),
   clock = require('../../assets/clock.png');
 
 /* Countdown for end of hacking */
