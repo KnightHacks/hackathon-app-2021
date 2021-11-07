@@ -31,10 +31,6 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
     useTheme() == DarkTheme ? CardStyles.cardDark : CardStyles.cardLight;
   let headingStyle =
     useTheme() == DarkTheme ? CardStyles.headingDark : CardStyles.headingLight;
-  let headerImageContainerStyle =
-    useTheme() == DarkTheme
-      ? CardStyles.headerImageContainerDark
-      : CardStyles.headerImageContainerLight;
 
   return (
     <Pressable
@@ -44,7 +40,7 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
       }}
     >
       <View style={CardStyles.header}>
-        <View style={headerImageContainerStyle}>
+        <View style={CardStyles.headerImageContainerLight}>
           <Image
             style={CardStyles.headerImage}
             source={{ uri: sponsor.logo }}
