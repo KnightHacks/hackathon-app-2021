@@ -3,7 +3,7 @@
     "name": "Knight Hacks",
     "entryPoint": "./src/App.tsx",
     "slug": "hackathon-app-2021",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,8 +17,8 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "org.knighthacks.knighthacks",
-      "buildNumber": "1.0.0",
-      "supportsTablet": true,
+      "buildNumber": "1.0.1",
+      "supportsTablet": false,
       "infoPlist": {
         "NSRemindersUsageDescription": "The calendar is accessed to add hackathon workshops."
       }
