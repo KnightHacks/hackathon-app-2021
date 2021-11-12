@@ -80,10 +80,7 @@ export default function EventCard({ event }: EventCardProps) {
     useTheme() == DarkTheme
       ? CardStyles.textTertiaryDark
       : CardStyles.textTertiaryLight;
-  let headerImageContainerStyle =
-    useTheme() == DarkTheme
-      ? CardStyles.headerImageContainerDark
-      : CardStyles.headerImageContainerLight;
+  let headerImageContainerStyle = CardStyles.headerImageContainerLight;
 
   return (
     <TouchableOpacity
